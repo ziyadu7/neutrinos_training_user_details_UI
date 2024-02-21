@@ -1,0 +1,112 @@
+[
+    {
+        "id": "sd_2FNUPwEZLUND7AtX",
+        "type": "tab",
+        "createdDate": "2024-02-20T14:06:59.202Z",
+        "label": "navBar",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "navBarComponent"
+    },
+    {
+        "id": "sd_DNs9MY1vV9FIB2jJ",
+        "type": "OnInit",
+        "z": "sd_2FNUPwEZLUND7AtX",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_DNs9MY1vV9FIB2jJ",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_HuugFieQEdHrNoZ7"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "navBarComponent"
+    },
+    {
+        "id": "sd_HuugFieQEdHrNoZ7",
+        "type": "PageVariables",
+        "z": "sd_2FNUPwEZLUND7AtX",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_HuugFieQEdHrNoZ7",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "navBarComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_ONbrqKvkEgIDuIdY",
+        "type": "PageStart",
+        "z": "sd_2FNUPwEZLUND7AtX",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "routing",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "route",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "routing",
+        "category": "General",
+        "x": 100,
+        "y": 180,
+        "wires": [
+            [
+                "sd_AFqr1ndM3HbsgQOJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "navBarComponent"
+    },
+    {
+        "id": "sd_AFqr1ndM3HbsgQOJ",
+        "type": "Navigation",
+        "z": "sd_2FNUPwEZLUND7AtX",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Routing to pages",
+        "pathMap": {
+            "type": "bh.input",
+            "value": "route"
+        },
+        "functionName": "routingToPages",
+        "category": "Navigation",
+        "x": 280,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "navBarComponent",
+        "generated": true
+    }
+]

@@ -1,0 +1,70 @@
+<div>
+  <bh-navBar></bh-navBar>
+  <form fxLayout="row" fxLayoutAlign="center center" [formGroup]="page.addForm" style="width:100%;">
+    <div fxLayout="column wrap" class="addFormCard" fxFlex="98" fxLayoutAlign="center space-between" [fxShow]="true" fxFlex.gt-sm="85">
+      <h2>
+        {{page.locales.keys.ADD_DETAILS}}
+      </h2>
+      <div fxLayout="row wrap" style="width:100%;" fxLayoutGap="5" fxLayoutAlign="space-evenly stretch" [fxShow]="true">
+        <mat-form-field style="width:45%" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput placeholder="Name" [required]="false" fxFlex="100" formControlName="name">
+          <mat-error align="start" *ngIf="page.addForm.get(&apos;name&apos;)?.errors?.required">Name is required</mat-error>
+        </mat-form-field>
+        <mat-form-field style="width:45%" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput placeholder="Phone" [required]="false" formControlName="phone">
+          <mat-error align="start" *ngIf="page.addForm.get(&apos;phone&apos;)?.errors?.required">Phone number is required</mat-error><mat-error align="start" *ngIf="page.addForm.get(&apos;phone&apos;)?.errors?.regex_error == true">Enter valid number</mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" fxLayoutGap="5" fxLayoutAlign="center stretch" [fxShow]="true">
+        <mat-form-field style="width:94%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput placeholder="Email" [required]="false" formControlName="email">
+          <mat-error align="start" *ngIf="page.addForm.get(&apos;email&apos;)?.errors?.required">Email is required</mat-error><mat-error align="start" *ngIf="page.addForm.get(&apos;email&apos;)?.errors?.regex_error">Enter valid email</mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" fxLayoutGap="5" fxLayoutAlign="center stretch" [fxShow]="true">
+        <p>
+          Sex : <mat-radio-button [value]="female" [required]="false" (change)="setGender(&apos;female&apos;)">Female</mat-radio-button><mat-radio-button [value]="male" style="margin-right:2px;" [required]="false" (change)="setGender(&apos;male&apos;)" [checked]="true">Male</mat-radio-button></p>
+      </div>
+      <div fxLayout="row wrap" fxLayoutGap="5" fxLayoutAlign="space-evenly stretch" [fxShow]="true">
+        <mat-form-field style="width:45%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput type="Date" [required]="false" formControlName="date" (change)="onDateChanges($event?.target?.value)">
+          <mat-error align="start" *ngIf="page.addForm.get(&apos;date&apos;)?.errors?.required">Date is required</mat-error>
+        </mat-form-field>
+        <mat-form-field style="width:45%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput type="Date" placeholder="today" [required]="false" formControlName="dateNow" [disabled]="true">
+          <mat-label>today</mat-label>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" fxLayoutAlign="center stretch" [fxShow]="true">
+        <mat-form-field style="width:94%" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput type="string" placeholder="date difference" value="{{page?.date?.difference}}" [required]="false" [disabled]="true">
+          <mat-label>date difference</mat-label>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" fxLayoutGap="5" fxLayoutAlign="space-evenly stretch" [fxShow]="true"><mat-form-field style="width:45%;" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;">
+          <mat-label>Country</mat-label>
+          <mat-select formControlName="country" placeholder="Country" [required]="false" (selectionChange)="selectStates($event)">
+            <ng-template ngFor let-option [ngForOf]="page?.countries" let-i="index">
+              <mat-option [value]="option">{{option?.name}}</mat-option>
+            </ng-template>
+          </mat-select>
+          <mat-error align="start" *ngIf="page.addForm.get(&apos;country&apos;)?.errors?.required">Country is required</mat-error>
+        </mat-form-field><mat-form-field style="width:45%;" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;">
+          <mat-label>State</mat-label>
+          <mat-select formControlName="state" placeholder="State" [required]="false" (selectionChange)="getWeatherDetails($event)">
+            <ng-template ngFor let-option [ngForOf]="page.states" let-i="index">
+              <mat-option [value]="option?.name">{{option?.name}}</mat-option>
+            </ng-template>
+          </mat-select>
+          <mat-error align="start" *ngIf="page.addForm.get(&apos;state&apos;)?.errors?.required">State is required</mat-error>
+        </mat-form-field></div>
+      <div fxLayout="row wrap" fxLayoutAlign="center stretch" [fxShow]="true">
+        <mat-form-field style="width:94%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput placeholder="{{page?.weatherDetails?.main?.feels_like||0}}C" value="{{page?.weatherDetails?.main?.feels_like||0}}C" [required]="false" [disabled]="true">
+
+        </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" style="margin-bottom:5px;" fxLayoutAlign="center stretch" [fxShow]="true"><lib-file-upload [nFileUploadAcceptableFileTypes]="[pdf,img,jpg]" [nFileUploadSelectMultiple]="false" [nFileUploadChangeLabelWithFileName]="false" [nFileUploadDisabled]="false" (nFileUploadOnChange)="fileUploading($event)" style="width:94%;"></lib-file-upload></div><button mat-button style="margin-bottom:5px;" class="add-more-button" (click)="addDetails()" type="submit">Add More</button><button mat-button class="submit-button" (click)="submitForm()" type="submit">submit</button>
+    </div>
+  </form>
+</div>

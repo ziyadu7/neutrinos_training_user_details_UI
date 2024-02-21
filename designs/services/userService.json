@@ -1,0 +1,492 @@
+[
+    {
+        "id": "sd_CK4a3TO3vRkIuzHm",
+        "type": "tab",
+        "createdDate": "2024-02-20T04:50:49.891Z",
+        "label": "userService",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "userService",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_omv02yD2IyIYgSGk",
+        "type": "Start",
+        "z": "sd_CK4a3TO3vRkIuzHm",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "fetch country and state",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "fetchCountryAndState",
+        "category": "General",
+        "x": 100,
+        "y": 120,
+        "wires": [
+            [
+                "sd_UjoyFvW5hMn6r3t9"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "userService"
+    },
+    {
+        "id": "sd_UjoyFvW5hMn6r3t9",
+        "type": "Script",
+        "z": "sd_CK4a3TO3vRkIuzHm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url =  bh.system.environment.properties?.GET_COUNTRYS_API",
+        "functionName": "sd_UjoyFvW5hMn6r3t9",
+        "category": "Function",
+        "x": 305,
+        "y": 120,
+        "wires": [
+            [
+                "sd_sOuifNQxFsRG5tUs"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "userService",
+        "generated": true
+    },
+    {
+        "id": "sd_sOuifNQxFsRG5tUs",
+        "type": "HttpRequest",
+        "z": "sd_CK4a3TO3vRkIuzHm",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.input.result",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_sOuifNQxFsRG5tUs",
+        "category": "HTTP",
+        "x": 505,
+        "y": 120,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "userService",
+        "generated": true
+    },
+    {
+        "id": "sd_ZQVpW9b07f1bASq7",
+        "type": "Script",
+        "z": "sd_CK4a3TO3vRkIuzHm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = `${bh.system.environment.properties?.WEATHER_API_BASE}?q=${bh.input?.state},${bh.input?.country}&appid=${bh.system.environment.properties?.WEATHER_API_ID}`\nconsole.log(bh.local.url,'weather url showing')",
+        "functionName": "sd_ZQVpW9b07f1bASq7",
+        "category": "Function",
+        "x": 320,
+        "y": 260,
+        "wires": [
+            [
+                "sd_NhzqLuQb8ShcXKuq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "userService",
+        "generated": true
+    },
+    {
+        "id": "sd_wOWTr4KgfdNpheyr",
+        "type": "Start",
+        "z": "sd_CK4a3TO3vRkIuzHm",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "fetch weather data",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "state",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            },
+            {
+                "key": "country",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "fetchWeatherData",
+        "category": "General",
+        "x": 105,
+        "y": 260,
+        "wires": [
+            [
+                "sd_ZQVpW9b07f1bASq7"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "userService"
+    },
+    {
+        "id": "sd_NhzqLuQb8ShcXKuq",
+        "type": "HttpRequest",
+        "z": "sd_CK4a3TO3vRkIuzHm",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.input.result",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_NhzqLuQb8ShcXKuq",
+        "category": "HTTP",
+        "x": 505,
+        "y": 260,
+        "wires": [
+            [
+                "sd_VhEsjj7q8iyLEpgB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "userService",
+        "generated": true
+    },
+    {
+        "id": "sd_VhEsjj7q8iyLEpgB",
+        "type": "Script",
+        "z": "sd_CK4a3TO3vRkIuzHm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input.result,'weather result')",
+        "functionName": "sd_VhEsjj7q8iyLEpgB",
+        "category": "Function",
+        "x": 660,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "userService",
+        "generated": true
+    },
+    {
+        "id": "sd_aqVjfeHGhi3yH4jT",
+        "type": "Start",
+        "z": "sd_CK4a3TO3vRkIuzHm",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "add details",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "details",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "response",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "addDetails",
+        "category": "General",
+        "x": 105,
+        "y": 400,
+        "wires": [
+            [
+                "sd_lKopk061wqbLPqJB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "userService"
+    },
+    {
+        "id": "sd_lKopk061wqbLPqJB",
+        "type": "Script",
+        "z": "sd_CK4a3TO3vRkIuzHm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = bh.system.environment.properties.ssdURL+`details`",
+        "functionName": "sd_lKopk061wqbLPqJB",
+        "category": "Function",
+        "x": 300,
+        "y": 400,
+        "wires": [
+            [
+                "sd_Fpv2MPdzj2tbxDGT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "userService",
+        "generated": true
+    },
+    {
+        "id": "sd_Fpv2MPdzj2tbxDGT",
+        "type": "HttpRequest",
+        "z": "sd_CK4a3TO3vRkIuzHm",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.input.details",
+        "reqBodyObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "details"
+        },
+        "resultMapping": "bh.input.response",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "response"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_Fpv2MPdzj2tbxDGT",
+        "category": "HTTP",
+        "x": 480,
+        "y": 400,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "userService",
+        "generated": true
+    },
+    {
+        "id": "sd_bs8myCrkjlEeB8hR",
+        "type": "Start",
+        "z": "sd_CK4a3TO3vRkIuzHm",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "fetch details",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "response",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            },
+            {
+                "key": "query",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "fetchDetails",
+        "category": "General",
+        "x": 105,
+        "y": 520,
+        "wires": [
+            [
+                "sd_cTpvpju40tfFR6Gg"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "userService"
+    },
+    {
+        "id": "sd_cTpvpju40tfFR6Gg",
+        "type": "Script",
+        "z": "sd_CK4a3TO3vRkIuzHm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = bh.system.environment.properties.ssdURL+`details`\nconsole.log(bh.input.query)",
+        "functionName": "sd_cTpvpju40tfFR6Gg",
+        "category": "Function",
+        "x": 300,
+        "y": 520,
+        "wires": [
+            [
+                "sd_QvK2CgHVx9sIjfkO"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "userService",
+        "generated": true
+    },
+    {
+        "id": "sd_QvK2CgHVx9sIjfkO",
+        "type": "HttpRequest",
+        "z": "sd_CK4a3TO3vRkIuzHm",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.input.response",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "response"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "paramMapping": "bh.input.query",
+        "paramMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "query"
+        },
+        "functionName": "sd_QvK2CgHVx9sIjfkO",
+        "category": "HTTP",
+        "x": 480,
+        "y": 520,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "userService",
+        "generated": true
+    }
+]

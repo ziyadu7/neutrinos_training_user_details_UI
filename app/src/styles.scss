@@ -1,0 +1,81 @@
+/*Importing default angular material css theme. */
+
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "nDefaults.scss";
+
+.submit-button{
+    background-color: rgb(104, 100, 100);
+    color: white;
+    margin-top:5px;
+}
+
+
+.add-more-button{
+    background-color: rgb(58, 57, 57);
+    color: white;
+    margin-top:5px;
+}
+
+.add-more-button:hover{
+    cursor: pointer;
+    background-color:rgb(71, 69, 69) ;
+}
+
+.submit-button:hover{
+    cursor: pointer;
+    background-color:rgb(71, 69, 69) ;
+}
+
+.addFormCard{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding:4px;
+}
+
+.details_container{
+    width: 100vw;
+    height: 100%;
+    background-color: blue($color: #000000);
+}
+
+.details-list-button{
+    background-color: black;
+    color: white;
+}
+
+.details-list-edit-button{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.details-list-table{
+   padding: 10px; 
+   border-radius: 5px;
+   border-width: 5px;
+   border-color: rgb(21, 92, 151);
+//    display: flex;
+//    justify-content: center;
+}
+
+.details-list-rows{
+    margin-bottom:2px;
+    width:100%;
+    text-align:center;
+    border-radius: 5px !important;
+    border-width: 10px !important;
+    border-color: black !important;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.header{
+    background-color: rgb(83, 81, 81);
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.header p:hover{
+    cursor: pointer;
+}

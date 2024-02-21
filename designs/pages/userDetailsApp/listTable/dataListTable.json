@@ -1,0 +1,391 @@
+[
+    {
+        "id": "sd_Jtqb1EvaK33ecx53",
+        "type": "tab",
+        "createdDate": "2024-02-20T14:08:22.330Z",
+        "label": "dataListTable",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 3,
+        "generateNext": true,
+        "serviceName": "dataListTableComponent"
+    },
+    {
+        "id": "sd_aHfwQXs6t3h4OhEr",
+        "type": "OnInit",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_aHfwQXs6t3h4OhEr",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 40,
+        "wires": [
+            [
+                "sd_yfYzMaiEO5w632rv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "dataListTableComponent"
+    },
+    {
+        "id": "sd_yfYzMaiEO5w632rv",
+        "type": "PageVariables",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "tableData",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_yfYzMaiEO5w632rv",
+        "category": "Function",
+        "x": 205,
+        "y": 40,
+        "wires": [
+            [
+                "sd_ByvEYHEgJj2LybVu"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dataListTableComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_ByvEYHEgJj2LybVu",
+        "type": "PageCallService",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_CK4a3TO3vRkIuzHm",
+            "type": "tab",
+            "createdDate": "2024-02-20T04:50:49.891Z",
+            "label": "userService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_bs8myCrkjlEeB8hR",
+            "flowName": "fetchDetails"
+        },
+        "inputVariables": [
+            {
+                "key": "response",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            },
+            {
+                "key": "query",
+                "map": false,
+                "value": "{id:false}"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "response",
+                "valueType": "bh.local",
+                "value": "response",
+                "mapVarName": "response",
+                "localVar": "bh.local.response"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/userService",
+        "startName": "fetchDetails",
+        "inputParams": [
+            null,
+            "{id:false}"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_ByvEYHEgJj2LybVu",
+        "category": "General",
+        "x": 360,
+        "y": 40,
+        "wires": [
+            [
+                "sd_dnWBF4FmoIh15z4P"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dataListTableComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_dnWBF4FmoIh15z4P",
+        "type": "Script",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.local.response,'data fetch response')\npage.tableData = bh.local?.response?.data",
+        "functionName": "sd_dnWBF4FmoIh15z4P",
+        "category": "Function",
+        "x": 505,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dataListTableComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_SuXqK5dgGBe1HXUQ",
+        "type": "PageStart",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "navigate to detail view page",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "id",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "navigateToDetailViewPage",
+        "category": "General",
+        "x": 65,
+        "y": 140,
+        "wires": [
+            [
+                "sd_KwXSgby9bEsqM6cp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "dataListTableComponent"
+    },
+    {
+        "id": "sd_KwXSgby9bEsqM6cp",
+        "type": "Navigation",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "path": "/detailView",
+        "qparamsMap": {
+            "type": "bh.local",
+            "value": "query"
+        },
+        "functionName": "sd_KwXSgby9bEsqM6cp",
+        "category": "Navigation",
+        "x": 565,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dataListTableComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_sY6VRtk6t5ERyBmf",
+        "type": "AfterViewInit",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "ngAfterViewInit",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 400,
+        "wires": [
+            [
+                "sd_L5oyfwOA8HmlVtIb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "dataListTableComponent"
+    },
+    {
+        "id": "sd_L5oyfwOA8HmlVtIb",
+        "type": "ViewPicker",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatSort"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "sd_xKCCTWKzvgDN0rx7_1",
+        "category": "Function",
+        "x": 205,
+        "y": 400,
+        "wires": [
+            [
+                "sd_rQ7rJjgo2Zyda6cf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dataListTableComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_rQ7rJjgo2Zyda6cf",
+        "type": "Script",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "this.page.tableData.sort = this.MatSort;",
+        "functionName": "sd_2VNGqvcKee34lvOz_1",
+        "category": "Function",
+        "x": 345,
+        "y": 400,
+        "wires": [
+            [
+                "sd_glrwM3pBpuNvvxgA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dataListTableComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_uAf0YAKYmqS3dgi5",
+        "type": "Script",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input.filterEvent);\nconst filterValue = (bh.input.filterEvent.target as HTMLInputElement).value;\nthis.page.tableData.filter = filterValue.trim().toLowerCase();",
+        "functionName": "sd_iBlFYTlpoczCmWts_2",
+        "category": "Function",
+        "x": 205,
+        "y": 520,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dataListTableComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_2s8lYYNGoaBSuDA8",
+        "type": "PageStart",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "onFilter_2",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "filterEvent",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "onFilter_2",
+        "category": "General",
+        "x": 60,
+        "y": 520,
+        "wires": [
+            [
+                "sd_uAf0YAKYmqS3dgi5"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "dataListTableComponent"
+    },
+    {
+        "id": "sd_glrwM3pBpuNvvxgA",
+        "type": "ViewPicker",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatPaginator"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "sd_xKCCTWKzvgDN0rx7_3",
+        "category": "Function",
+        "x": 205,
+        "y": 630,
+        "wires": [
+            [
+                "sd_42PlQnzvNZrFnihs"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dataListTableComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_42PlQnzvNZrFnihs",
+        "type": "Script",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "this.page.tableData.paginator = this.MatPaginator;",
+        "functionName": "sd_2VNGqvcKee34lvOz_3",
+        "category": "Function",
+        "x": 345,
+        "y": 630,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dataListTableComponent",
+        "generated": true
+    }
+]

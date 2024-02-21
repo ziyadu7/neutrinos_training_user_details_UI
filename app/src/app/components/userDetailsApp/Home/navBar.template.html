@@ -1,0 +1,10 @@
+<header class="header" fxLayout="row" fxLayoutAlign="space-between center">
+  <h4>
+    Details store</h4>
+  <div fxLayout="row wrap" fxLayoutGap="15" fxLayoutAlign="start stretch" [fxShow]="true">
+    <p (click)="routing(&apos;/addDetails&apos;)">
+      Add</p>
+    <p (click)="routing(&apos;/listDetails&apos;)">
+      List</p>
+  </div>
+</header>

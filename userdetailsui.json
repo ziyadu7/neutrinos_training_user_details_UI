@@ -1,0 +1,13 @@
+{
+    "displayName": "userDetailsUI",
+    "appName": "userdetailsui",
+    "description": "creating user details management app ",
+    "lastModified": "2024-02-20T01:50:59.880Z",
+    "imgSourcePath": "",
+    "version": "1.0.0",
+    "appType": "uiOnly",
+    "templateName": "blank",
+    "createDate": "2024-02-20T01:50:58.784Z",
+    "analyticsId": "91d3cd0e-6e51-18b3-d3df-cae22e228098",
+    "createdStudioVersion": "9.2.1"
+}

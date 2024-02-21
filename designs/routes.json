@@ -1,0 +1,26 @@
+{
+    "routes": [
+        {
+            "path": "addDetails",
+            "component": "addFormComponent"
+        },
+        {
+            "path": "listDetails",
+            "component": "dataListTableComponent"
+        },
+        {
+            "path": "detailView",
+            "component": "detailViewComponent"
+        },
+        {
+            "path": "''",
+            "redirectTo": "addDetails",
+            "pathMatch": "full",
+            "default": true
+        },
+        {
+            "path": "**",
+            "component": "PageNotFoundComponent"
+        }
+    ]
+}

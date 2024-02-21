@@ -1,0 +1,13 @@
+{
+    "classes": [
+        "submit-button",
+        "add-more-button",
+        "addFormCard",
+        "details_container",
+        "details-list-button",
+        "details-list-edit-button",
+        "details-list-table",
+        "details-list-rows",
+        "header"
+    ]
+}

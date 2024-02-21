@@ -1,0 +1,65 @@
+<div>
+  <bh-navBar></bh-navBar>
+  <div fxLayout="row" fxLayoutAlign="center center" style="width:100%;">
+    <div fxLayout="column wrap" class="addFormCard" fxFlex="98" fxLayoutAlign="center space-between" [fxShow]="true" fxFlex.gt-sm="85">
+      <h2>
+        View Details</h2>
+      <form [formGroup]="page.mainEditForm" style="width:100%;">
+        <div fxLayout="row wrap" style="width:100%;" fxLayoutGap="5" fxLayoutAlign="space-evenly stretch" [fxShow]="true">
+          <mat-form-field style="width:45%" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+            <input matInput placeholder="Name" value="page?.data?.name" [required]="false" fxFlex="100" formControlName="name" [disabled]="false">
+            <mat-error align="start" *ngIf="page.mainEditForm.get(&apos;name&apos;)?.errors?.required">Name is required</mat-error>
+          </mat-form-field>
+          <mat-form-field style="width:45%" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+            <input matInput placeholder="Phone" [required]="false" formControlName="phone" [disabled]="false">
+            <mat-error align="start" *ngIf="page.mainEditForm.get(&apos;phone&apos;)?.errors?.required">Phone number is required</mat-error><mat-error align="start" *ngIf="page.mainEditForm.get(&apos;phone&apos;)?.errors?.regex_error == true">Enter valid number</mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row wrap" fxLayoutGap="5" fxLayoutAlign="center stretch" [fxShow]="true">
+          <mat-form-field style="width:94%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+            <input matInput placeholder="Email" [required]="false" formControlName="email" [disabled]="false">
+            <mat-error align="start" *ngIf="page.mainEditForm.get(&apos;email&apos;)?.errors?.required">Email is required</mat-error><mat-error align="start" *ngIf="page.mainEditForm.get(&apos;email&apos;)?.errors?.regex_error">Enter valid email</mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row wrap" fxLayoutGap="5" fxLayoutAlign="center stretch" [fxShow]="true"><mat-radio-group formControlName="sex" [required]="false"></mat-radio-group>
+          <p>
+            Sex : </p>
+        </div>
+      </form>
+      <div *ngFor="let subData of page?.details">
+        <div fxLayout="row" fxLayoutAlign="end center">
+          <button mat-raised-button style="margin-bottom:5px;" color="primary">Edit</button>
+        </div>
+        <div fxLayout="row wrap" fxLayoutGap="5" fxLayoutAlign="space-evenly stretch" [fxShow]="true">
+          <mat-form-field style="width:45%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+            <input matInput type="Date" value="{{subData?.date}}" [required]="false" [disabled]="true">
+
+          </mat-form-field>
+          <mat-form-field style="width:45%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+            <input matInput type="Date" placeholder="today" value="{{subData?.currentDate.slice(0,10)}}" [required]="false" [disabled]="true">
+
+          </mat-form-field>
+        </div>
+        <div fxLayout="row wrap" fxLayoutAlign="center stretch" [fxShow]="true">
+          <mat-form-field style="width:94%" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+            <input matInput type="string" placeholder="date difference" value="{{subData?.dateDiff}}" [required]="false" [disabled]="true">
+            <mat-label>date difference</mat-label>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row wrap" fxLayoutGap="5" fxLayoutAlign="space-evenly stretch" [fxShow]="true">
+          <mat-form-field style="width:45%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+            <input matInput placeholder="Country" value="{{subData?.country}}" [required]="false" [disabled]="true">
+
+          </mat-form-field>
+          <mat-form-field style="width:45%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+            <input matInput placeholder="State" value="{{subData?.state}}" [required]="false" [disabled]="true">
+
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="9">
+        <button mat-button style="margin-bottom:5px;width:100%;" class="add-more-button" type="submit">Add More</button><button mat-button style="width:100%;" class="submit-button" type="submit">submit Edits</button>
+      </div>
+    </div>
+  </div>
+</div>

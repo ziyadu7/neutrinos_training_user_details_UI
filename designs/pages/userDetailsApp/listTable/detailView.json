@@ -1,0 +1,306 @@
+[
+    {
+        "id": "sd_PMiZvyRFcxv5v9TD",
+        "type": "tab",
+        "createdDate": "2024-02-21T03:42:12.342Z",
+        "label": "detailView",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "detailViewComponent"
+    },
+    {
+        "id": "sd_7x9AgBOMAesuBHIS",
+        "type": "OnInit",
+        "z": "sd_PMiZvyRFcxv5v9TD",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "id",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "pageVariables": [],
+        "functionName": "sd_7x9AgBOMAesuBHIS",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 60,
+        "wires": [
+            [
+                "sd_wKGVPlM8Yu1UsR24"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "detailViewComponent"
+    },
+    {
+        "id": "sd_wKGVPlM8Yu1UsR24",
+        "type": "PageVariables",
+        "z": "sd_PMiZvyRFcxv5v9TD",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_wKGVPlM8Yu1UsR24",
+        "category": "Function",
+        "x": 165,
+        "y": 60,
+        "wires": [
+            [
+                "sd_OXa81nq5gFgF28WI"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "detailViewComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_OX3NlAh4RoSd1w0s",
+        "type": "NavigationData",
+        "z": "sd_PMiZvyRFcxv5v9TD",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "queryParams",
+        "operation": "getAll",
+        "key": "bh",
+        "resultMapping": "bh.local.query",
+        "functionName": "sd_OX3NlAh4RoSd1w0s",
+        "category": "Navigation",
+        "x": 485,
+        "y": 60,
+        "wires": [
+            [
+                "sd_kx36eL9wmCRAwsks"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "key": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "query",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "detailViewComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_kx36eL9wmCRAwsks",
+        "type": "PageCallService",
+        "z": "sd_PMiZvyRFcxv5v9TD",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_CK4a3TO3vRkIuzHm",
+            "type": "tab",
+            "createdDate": "2024-02-20T04:50:49.891Z",
+            "label": "userService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_bs8myCrkjlEeB8hR",
+            "flowName": "fetchDetails"
+        },
+        "inputVariables": [
+            {
+                "key": "response",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            },
+            {
+                "key": "query",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "query"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "response",
+                "valueType": "bh.local",
+                "value": "response",
+                "mapVarName": "response",
+                "localVar": "bh.local.response"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/userService",
+        "startName": "fetchDetails",
+        "inputParams": [
+            null,
+            "bh.local.query"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_kx36eL9wmCRAwsks",
+        "category": "General",
+        "x": 585,
+        "y": 60,
+        "wires": [
+            [
+                "sd_0ANtjRCZQEKOiPFZ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "detailViewComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_0ANtjRCZQEKOiPFZ",
+        "type": "Script",
+        "z": "sd_PMiZvyRFcxv5v9TD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.data = bh.local?.response?.data?.[0]\npage.details = []\npage.data?.details?.forEach((detail:any)=>{\n    console.log(detail,'detail consoling in foreach')\n    page.details = [...page?.details,JSON.parse(detail)]\n})\nconsole.log(page.data,'data')\nconsole.log(page.details,'details')",
+        "functionName": "sd_0ANtjRCZQEKOiPFZ",
+        "category": "Function",
+        "x": 705,
+        "y": 60,
+        "wires": [
+            [
+                "sd_dWwvhMQRNaXyc9WT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "detailViewComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_U5VWzQasZSCDVCNg",
+        "type": "UseDependency",
+        "z": "sd_PMiZvyRFcxv5v9TD",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Importing form",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "formGroup"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormControl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "formControl"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "validator "
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "importingForm",
+        "category": "Function",
+        "x": 385,
+        "y": 60,
+        "wires": [
+            [
+                "sd_OX3NlAh4RoSd1w0s"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "detailViewComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_OXa81nq5gFgF28WI",
+        "type": "UseDependency",
+        "z": "sd_PMiZvyRFcxv5v9TD",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Importing moment",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "moment",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.moment",
+        "alias": "moment",
+        "modules": [],
+        "import_all": true,
+        "library": "moment",
+        "serviceDesignerType": "pages",
+        "functionName": "importingMoment",
+        "category": "Function",
+        "x": 285,
+        "y": 60,
+        "wires": [
+            [
+                "sd_U5VWzQasZSCDVCNg"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "detailViewComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_dWwvhMQRNaXyc9WT",
+        "type": "Script",
+        "z": "sd_PMiZvyRFcxv5v9TD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "declaring form",
+        "script": "const data = page.data\npage.mainEditForm = new page.formGroup({\n    name: new page.formControl(data?.name, [page.validator.required]),\n    phone: new page.formControl(data?.phone, [page.validator.required]),\n    email: new page.formControl(data?.email, [page.validator.required]),\n    sex: new page.formControl(data?.sex, [page.validator.required])\n})\n\npage.subDataEditForm = new page.formGroup({\n    date: new page.formControl('', [page.validator.required]),\n    country: new page.formControl('', [page.validator.required]),\n    state: new page.formControl('', [page.validator.required])\n})",
+        "functionName": "declaringForm",
+        "category": "Function",
+        "x": 805,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "detailViewComponent",
+        "generated": true
+    }
+]

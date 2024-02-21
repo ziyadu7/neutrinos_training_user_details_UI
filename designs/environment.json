@@ -1,0 +1,62 @@
+{
+    "TYPE": {
+        "name": "TYPE",
+        "properties": {
+            "production": "client",
+            "ssdURL": "client",
+            "tenantName": "client",
+            "appName": "client",
+            "namespace": "client",
+            "useDefaultExceptionUI": "client",
+            "isIDSEnabled": "client",
+            "SSD_BASE_PATH": "server",
+            "SSD_DEFAULT_PORT": "server",
+            "webAppMountpoint": "both",
+            "CLOCK_TOLERANCE": "server",
+            "NGFORAGE_MOBILE_DRIVER": "client",
+            "WEATHER_API_BASE": "client",
+            "WEATHER_API_ID": "client",
+            "GET_COUNTRYS_API": "client"
+        }
+    },
+    "dev": {
+        "name": "dev",
+        "properties": {
+            "production": false,
+            "ssdURL": "http://localhost:8081/api/",
+            "tenantName": "brototype",
+            "appName": "userdetailsui",
+            "namespace": "com.brototype.userdetailsui",
+            "useDefaultExceptionUI": true,
+            "isIDSEnabled": "false",
+            "SSD_BASE_PATH": "/api",
+            "SSD_DEFAULT_PORT": "8081",
+            "webAppMountpoint": "web",
+            "CLOCK_TOLERANCE": "5",
+            "NGFORAGE_MOBILE_DRIVER": "INDEXED_DB",
+            "WEATHER_API_BASE": "https://api.openweathermap.org/data/2.5/weather",
+            "WEATHER_API_ID": "2b289bb0af020f05e9454f74debffc08",
+            "GET_COUNTRYS_API": "https://countriesnow.space/api/v0.1/countries/states"
+        }
+    },
+    "prod": {
+        "name": "prod",
+        "properties": {
+            "production": true,
+            "ssdURL": "http://localhost:8081/api/",
+            "tenantName": "brototype",
+            "appName": "userdetailsui",
+            "namespace": "com.brototype.userdetailsui",
+            "useDefaultExceptionUI": true,
+            "isIDSEnabled": "false",
+            "SSD_BASE_PATH": "/api",
+            "SSD_DEFAULT_PORT": "8081",
+            "webAppMountpoint": "web",
+            "CLOCK_TOLERANCE": "5",
+            "NGFORAGE_MOBILE_DRIVER": "INDEXED_DB",
+            "WEATHER_API_BASE": "https://api.openweathermap.org/data/2.5/weather",
+            "WEATHER_API_ID": "2b289bb0af020f05e9454f74debffc08",
+            "GET_COUNTRYS_API": "https://countriesnow.space/api/v0.1/countries/states"
+        }
+    }
+}

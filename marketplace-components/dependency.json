@@ -1,0 +1,393 @@
+{
+    "packages": [
+        {
+            "name": "neutrinos-all-default-nodes-plugin",
+            "default": true,
+            "visible": false,
+            "dependencies": [
+                {
+                    "name": "ndefault-all-nodes",
+                    "packageType": "studio-nodes",
+                    "nodes": {
+                        "server": [
+                            "ChildProcess",
+                            "CORS",
+                            "DBConfig",
+                            "GlobalMiddlewareEnd",
+                            "GlobalMiddlewareStart",
+                            "GlobalNext",
+                            "HttpIn",
+                            "HttpOut",
+                            "HttpProxyConfig",
+                            "ServerHttpRequest",
+                            "MiddlewareEnd",
+                            "MiddlewareStart",
+                            "Next",
+                            "RouteMiddlewareEnd",
+                            "RouteMiddlewareStart",
+                            "ServerLog",
+                            "TLSConfig",
+                            "Processor"
+                        ],
+                        "common": [
+                            "Catch",
+                            "Comments",
+                            "Script",
+                            "Unknown"
+                        ],
+                        "pages": [
+                            "PageCallService",
+                            "PageStart",
+                            "PageSwitch",
+                            "ViewPicker",
+                            "PageVariables",
+                            "PageServiceVariables",
+                            "PageAsync"
+                        ],
+                        "client-server": [
+                            "ServiceVariables",
+                            "CallService",
+                            "Start",
+                            "Switch",
+                            "Async"
+                        ],
+                        "client-pages": [
+                            "Environment",
+                            "HttpRequest",
+                            "Log",
+                            "Navigation",
+                            "SnackBar",
+                            "Storage",
+                            "CallSSDApi",
+                            "UseDependency",
+                            "neutrinos-ngzone"
+                        ],
+                        "client": [
+                            "CanActivate",
+                            "CanDeactivate",
+                            "Resolve"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "devid": "165010b2-9099-5b62-6926-9a6962e22ba6",
+            "name": "neutrinos-internet",
+            "displayName": "Internet",
+            "version": "1.0.0",
+            "default": true,
+            "username": "avinash.gupta@neutrinos.co",
+            "publisher": "Neutrinos",
+            "platformSupportVersion": {
+                "min": "7.7.0"
+            },
+            "description": "Client Side Designer node to check internet connectivity.",
+            "pluginImage": "",
+            "dependencies": [
+                {
+                    "name": "neutrinos-internet",
+                    "displayName": "Internet",
+                    "packageType": "studio-nodes",
+                    "version": "1.0.0",
+                    "nodes": {
+                        "client-pages": [
+                            {
+                                "name": "09116728-8c4c-739f-c7da-625634afe918",
+                                "displayName": "On Online"
+                            },
+                            {
+                                "name": "c6ef8916-35f2-a758-e8d5-8b61fdac762d",
+                                "displayName": "On Offline"
+                            },
+                            {
+                                "name": "9f050d9a-4bf7-fc9b-6e14-cf39e33ead30",
+                                "displayName": "isOnline"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "devid": "68bc9eec-a2fc-bccd-1630-883e4552c3eb",
+            "name": "neutrinos-lifecycle-events",
+            "displayName": "Lifecycle Events",
+            "version": "1.0.0",
+            "username": "avinash.gupta@neutrinos.co",
+            "publisher": "Neutrinos",
+            "default": true,
+            "visible": false,
+            "platformSupportVersion": {
+                "min": "7.8.0"
+            },
+            "dependencies": [
+                {
+                    "name": "neutrinos-lifecycle-events",
+                    "displayName": "Lifecycle Events",
+                    "packageType": "studio-nodes",
+                    "version": "1.0.0",
+                    "nodes": {
+                        "pages": [
+                            {
+                                "name": "OnChanges",
+                                "displayName": "On Changes"
+                            },
+                            {
+                                "name": "OnInit",
+                                "displayName": "On Init"
+                            },
+                            {
+                                "name": "DoCheck",
+                                "displayName": "Do Check"
+                            },
+                            {
+                                "name": "AfterContentInit",
+                                "displayName": "After Content Init"
+                            },
+                            {
+                                "name": "AfterContentChecked",
+                                "displayName": "After Content Checked"
+                            },
+                            {
+                                "name": "AfterViewInit",
+                                "displayName": "After View Init"
+                            },
+                            {
+                                "name": "AfterViewChecked",
+                                "displayName": "After View Checked"
+                            },
+                            {
+                                "name": "OnDestroy",
+                                "displayName": "On Destroy"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "devid": "1dd8ed79-2f61-798f-0570-c8b153987b2c",
+            "name": "neutrinos-dialog",
+            "displayName": "Dialog",
+            "version": "1.0.0",
+            "username": "avinash.gupta@neutrinos.co",
+            "publisher": "Neutrinos",
+            "platformSupportVersion": {
+                "min": "7.8.0"
+            },
+            "default": true,
+            "visible": false,
+            "dependencies": [
+                {
+                    "name": "neutrinos-dialog",
+                    "displayName": "Dialog",
+                    "packageType": "studio-nodes",
+                    "version": "1.0.0",
+                    "nodes": {
+                        "pages": [
+                            {
+                                "name": "GetDialogData",
+                                "displayName": "Get Dialog Data"
+                            },
+                            {
+                                "name": "CloseDialog",
+                                "displayName": "Close Dialog"
+                            }
+                        ],
+                        "client-pages": [
+                            {
+                                "name": "OpenDialog",
+                                "displayName": "Open Dialog"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "neutrinos-listener",
+            "displayName": "HostListener",
+            "version": "1.0.0",
+            "username": "avinash.gupta@neutrinos.co",
+            "publisher": "Neutrinos",
+            "platformSupportVersion": {
+                "min": "7.8.0"
+            },
+            "default": true,
+            "visible": false,
+            "dependencies": [
+                {
+                    "name": "neutrinos-listener",
+                    "displayName": "HostListener",
+                    "packageType": "studio-nodes",
+                    "version": "1.0.0",
+                    "nodes": {
+                        "pages": [
+                            {
+                                "name": "HostListener",
+                                "displayName": "Host Listener"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "neutrinos-output",
+            "displayName": "Output",
+            "version": "1.0.0",
+            "username": "avinash.gupta@neutrinos.co",
+            "publisher": "Neutrinos",
+            "default": true,
+            "visible": true,
+            "platformSupportVersion": {
+                "min": "7.8.0"
+            },
+            "dependencies": [
+                {
+                    "name": "neutrinos-output",
+                    "displayName": "Output",
+                    "packageType": "studio-nodes",
+                    "version": "1.0.0",
+                    "nodes": {
+                        "pages": [
+                            {
+                                "name": "Output",
+                                "displayName": "Output"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "neutrinos-route",
+            "displayName": "Route",
+            "version": "1.0.0",
+            "username": "avinash.gupta@neutrinos.co",
+            "publisher": "Neutrinos",
+            "default": true,
+            "visible": true,
+            "platformSupportVersion": {
+                "min": "8.1.0"
+            },
+            "dependencies": [
+                {
+                    "name": "neutrinos-route",
+                    "displayName": "Route",
+                    "packageType": "studio-nodes",
+                    "version": "1.0.0",
+                    "nodes": {
+                        "pages": [
+                            {
+                                "name": "NavigationListener",
+                                "displayName": "Navigation Listener"
+                            },
+                            {
+                                "name": "NavigationData",
+                                "displayName": "Navigation Data"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "_id": "6230bf8a121d3ae0ca21cb91",
+            "name": "neutrinos-file-upload",
+            "averageRating": 4,
+            "description": "plugin to upload files",
+            "displayName": "File Upload",
+            "lastUpdated": "2022-03-15T16:32:10.087Z",
+            "numberOfDownloads": 0,
+            "packageType": [
+                "angular-package",
+                "studio-package"
+            ],
+            "platformSupportVersion": "8.1.0",
+            "pluginImage": "packageicon.png",
+            "publisher": "Neutrinos",
+            "uploadedDate": "2022-03-15T16:32:10.087Z",
+            "username": "avinash.gupta@neutrinos.co",
+            "version": "1.0.0",
+            "versions": {
+                "1.0.0": {
+                    "packages": [
+                        {
+                            "name": "neutrinos-file-upload",
+                            "version": "1.0.0",
+                            "packageType": "angular-package",
+                            "displayName": "File Upload"
+                        },
+                        {
+                            "name": "neutrinos-fileupload-component",
+                            "version": "1.0.0",
+                            "packageType": "studio-package",
+                            "displayName": "File Upload",
+                            "nModule": {
+                                "name": "neutrinos-file-upload",
+                                "version": "1.0.0",
+                                "packageType": "angular-package",
+                                "importStatement": "import { NeutrinosFileUploadModule } from 'neutrinos-file-upload';",
+                                "imports": [
+                                    "NeutrinosFileUploadModule"
+                                ]
+                            }
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.1.0"
+                    },
+                    "metadata": {
+                        "name": "neutrinos-file-upload",
+                        "displayName": "File Upload",
+                        "version": "1.0.0",
+                        "username": "avinash.gupta@neutrinos.co",
+                        "publisher": "Neutrinos",
+                        "platformSupportVersion": {
+                            "min": "8.1.0"
+                        },
+                        "description": "plugin to upload files",
+                        "pluginImage": "packageicon.png"
+                    },
+                    "version": "1.0.0"
+                }
+            },
+            "archiveFile": "api/zips/undefined",
+            "guide": "6230bf8bd4548e001c7353f2",
+            "icon": "api/resource/icons/6230bf8ad4548e001c7353ec",
+            "screenshots": [
+                "api/resource/screenshots/6230bf8ad4548e001c7353ee",
+                "api/resource/screenshots/6230bf8ad4548e001c7353f0"
+            ],
+            "no_of_downloads_by_packages": {
+                "neutrinos-fileupload-component": 115,
+                "neutrinos-file-upload": 272
+            },
+            "dependencies": [
+                {
+                    "name": "neutrinos-file-upload",
+                    "version": "1.0.0",
+                    "packageType": "angular-package",
+                    "displayName": "File Upload"
+                },
+                {
+                    "name": "neutrinos-fileupload-component",
+                    "version": "1.0.0",
+                    "packageType": "studio-package",
+                    "displayName": "File Upload",
+                    "nModule": {
+                        "name": "neutrinos-file-upload",
+                        "version": "1.0.0",
+                        "packageType": "angular-package",
+                        "importStatement": "import { NeutrinosFileUploadModule } from 'neutrinos-file-upload';",
+                        "imports": [
+                            "NeutrinosFileUploadModule"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

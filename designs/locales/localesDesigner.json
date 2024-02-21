@@ -1,0 +1,10 @@
+{
+    "en": {
+        "localeId": "en",
+        "localeName": "English",
+        "isDefaultLanguage": true,
+        "properties": {
+            "ADD_DETAILS": "Add Details"
+        }
+    }
+}
