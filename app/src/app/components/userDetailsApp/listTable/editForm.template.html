@@ -1,0 +1,53 @@
+<div class="modal">
+  <div class="modal-content">
+    <span (click)="closeModalFunction()" class="close-modal">
+                &#xD7;</span>
+    <div style="padding-top:5px;">
+      <h3 style="text-align:center;">
+        Form Modal</h3>
+      <form fxLayoutAlign="space-around center" [formGroup]="page?.addDetailsForm" class="form_container">
+        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+          <div fxLayout="row wrap" style="width:100%;" fxLayoutGap="5" fxLayoutAlign="start stretch" [fxShow]="true">
+            <mat-form-field style="width:46.5%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput type="date" placeholder="date" [required]="false" formControlName="date" (change)="onDateChanges($event?.target?.value)">
+
+            </mat-form-field>
+            <mat-form-field style="width:46.5%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="added date" value="{{page?.date?.currentDate}}" [required]="false" [disabled]="true">
+
+            </mat-form-field>
+          </div>
+          <div fxLayout="row wrap" style="width:100%;" fxLayoutGap="5" fxLayoutAlign="start stretch" [fxShow]="true">
+            <mat-form-field style="width:94%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="date difference" value="{{page?.date?.dateDiff}}" [required]="false" [disabled]="true">
+
+            </mat-form-field>
+          </div>
+          <div fxLayout="row wrap" style="width:100%;" fxLayoutGap="5" fxLayoutAlign="start stretch" [fxShow]="true"><mat-form-field style="width:46.5%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+              <mat-label>Country</mat-label>
+              <mat-select formControlName="country" placeholder="{{page?.editData?.country}}" [required]="false" (selectionChange)="selectStates($event)">
+                <ng-template ngFor let-option [ngForOf]="page.countries" let-i="index">
+                  <mat-option [value]="option">{{option?.name}}</mat-option>
+                </ng-template>
+              </mat-select>
+
+            </mat-form-field><mat-form-field style="width:46.5%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+              <mat-label>State</mat-label>
+              <mat-select [(value)]="page.editData.country" formControlName="state" placeholder="{{page?.editData?.state}}" [required]="false" (selectionChange)="getWeatherDetails($event)">
+                <ng-template ngFor let-option [ngForOf]="page?.states" let-i="index">
+                  <mat-option [value]="option">{{option?.name}}</mat-option>
+                </ng-template>
+              </mat-select>
+
+            </mat-form-field></div>
+          <div fxLayout="row wrap" style="width:100%;" fxLayoutGap="5" fxLayoutAlign="start stretch" [fxShow]="true">
+            <mat-form-field style="width:94%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="weather" value="{{page?.weather}}" [required]="false" [disabled]="true">
+
+            </mat-form-field>
+          </div><button mat-raised-button (click)="submit()">Sumbit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

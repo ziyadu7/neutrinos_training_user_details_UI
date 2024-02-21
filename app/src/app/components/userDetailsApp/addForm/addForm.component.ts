@@ -11,6 +11,7 @@ import {
   Validators,
 } from '@angular/forms'; //_splitter_
 import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
+import { Router } from '@angular/router'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { NeuServiceInvokerService } from 'app/n-services/service-caller.service'; //_splitter_
@@ -357,8 +358,6 @@ export class addFormComponent {
         return;
       }
 
-      console.log('ivde ethuoo');
-
       if (!page?.addForm?.value?.country) {
         page.addForm.get('country').status = 'INVALID';
         return;
@@ -607,8 +606,6 @@ export class addFormComponent {
         return acceptedImageTypes.includes(file?.type);
       }
 
-      console.log(page?.file, 'file consoling in validation page');
-
       if (!isValidImage(page?.file)) {
         throw {
           message: 'Add valid image or pdf',
@@ -632,8 +629,6 @@ export class addFormComponent {
       formData.append('file', page?.data?.file);
       formData.append('details', detailsJSON);
 
-      console.log(page?.data, 'form data consoling on submit ');
-
       page.data = formData;
 
       bh = this.callingSubmitService(bh);
@@ -655,7 +650,7 @@ export class addFormComponent {
       );
       bh.local.response = outputVariables.input.response;
 
-      bh = this.sd_yCegGGtYYTEJ0bTJ(bh);
+      bh = this.sd_OgjfcqFsByEZ1MUq(bh);
       //appendnew_next_callingSubmitService
       return bh;
     } catch (e) {
@@ -663,14 +658,38 @@ export class addFormComponent {
     }
   }
 
-  sd_yCegGGtYYTEJ0bTJ(bh) {
+  sd_OgjfcqFsByEZ1MUq(bh) {
     try {
-      const page = this.page;
-      console.log(bh.local.response, 'response consoling');
-      //appendnew_next_sd_yCegGGtYYTEJ0bTJ
+      if (
+        this.sdService.operators['eq'](
+          bh.local.response.statusCode,
+          200,
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_dZmzzgWqwe6QkL1m(bh);
+      }
+
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_yCegGGtYYTEJ0bTJ');
+      return this.errorHandler(bh, e, 'sd_OgjfcqFsByEZ1MUq');
+    }
+  }
+
+  async sd_dZmzzgWqwe6QkL1m(bh) {
+    try {
+      const { paramObj: qprm, path: path } =
+        this.sdService.getPathAndQParamsObj('/listDetails');
+      await this.__page_injector__
+        .get(Router)
+        .navigate([this.sdService.formatPathWithParams(path, undefined)], {
+          queryParams: Object.assign(qprm, ''),
+        });
+      //appendnew_next_sd_dZmzzgWqwe6QkL1m
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_dZmzzgWqwe6QkL1m');
     }
   }
 

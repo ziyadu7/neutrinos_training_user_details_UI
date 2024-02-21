@@ -1,0 +1,678 @@
+[
+    {
+        "id": "sd_L6jNvcEyXNvCSMJ7",
+        "type": "tab",
+        "createdDate": "2024-02-21T09:09:45.847Z",
+        "label": "editForm",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "editFormComponent"
+    },
+    {
+        "id": "sd_A4o9swdkg3n91oaO",
+        "type": "OnInit",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "editData",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [
+            {
+                "key": "response",
+                "defaultValue": {
+                    "type": "any",
+                    "value": null
+                }
+            },
+            {
+                "key": "closeModal",
+                "defaultValue": {
+                    "type": "any",
+                    "value": null
+                }
+            }
+        ],
+        "pageVariables": [],
+        "functionName": "sd_A4o9swdkg3n91oaO",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 80,
+        "wires": [
+            [
+                "sd_myLyHmKal0GdFosF"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "editFormComponent"
+    },
+    {
+        "id": "sd_myLyHmKal0GdFosF",
+        "type": "PageVariables",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "editData",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "pageInput.editData"
+                }
+            },
+            {
+                "textIp": "countries",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "date",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "weather",
+                "typedIpValue": {
+                    "type": "str",
+                    "value": "0 C"
+                }
+            }
+        ],
+        "functionName": "sd_myLyHmKal0GdFosF",
+        "category": "Function",
+        "x": 235,
+        "y": 80,
+        "wires": [
+            [
+                "sd_evdGD5Dt1vK79JWY"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "editFormComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_z5UqhFf7P8tO74Zn",
+        "type": "PageStart",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "close_modal_function",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "closeModalFunction",
+        "category": "General",
+        "x": 100,
+        "y": 240,
+        "wires": [
+            [
+                "sd_HyX1yQTbLTLvJ7GI"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "editFormComponent"
+    },
+    {
+        "id": "sd_HyX1yQTbLTLvJ7GI",
+        "type": "Output",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "bh.pageOutput.closeModal",
+        "data": false,
+        "functionName": "sd_HyX1yQTbLTLvJ7GI",
+        "category": "Function",
+        "x": 440,
+        "y": 240,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "bh.pageOutput",
+                "value": "closeModal",
+                "constant": false
+            },
+            "data": {
+                "type": "bool",
+                "value": "false",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "editFormComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_Ckc9Bof1qlsR4uhT",
+        "type": "UseDependency",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Importing form",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "formGroup"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormControl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "formControl"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "validator "
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "importingForm",
+        "category": "Function",
+        "x": 465,
+        "y": 80,
+        "wires": [
+            [
+                "sd_8ijgV3Z6dgKzch6d"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "editFormComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_evdGD5Dt1vK79JWY",
+        "type": "UseDependency",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Importing moment",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "moment",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.moment",
+        "alias": "moment",
+        "modules": [],
+        "import_all": true,
+        "library": "moment",
+        "serviceDesignerType": "pages",
+        "functionName": "importingMoment",
+        "category": "Function",
+        "x": 345,
+        "y": 80,
+        "wires": [
+            [
+                "sd_Ckc9Bof1qlsR4uhT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "editFormComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_8ijgV3Z6dgKzch6d",
+        "type": "PageCallService",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_CK4a3TO3vRkIuzHm",
+            "type": "tab",
+            "createdDate": "2024-02-20T04:50:49.891Z",
+            "label": "userService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_omv02yD2IyIYgSGk",
+            "flowName": "fetchCountryAndState"
+        },
+        "inputVariables": [
+            {
+                "key": "result",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "result",
+                "valueType": "bh.local",
+                "value": "countries",
+                "mapVarName": "result",
+                "localVar": "bh.local.countries"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/userService",
+        "startName": "fetchCountryAndState",
+        "inputParams": [
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_8ijgV3Z6dgKzch6d",
+        "category": "General",
+        "x": 625,
+        "y": 80,
+        "wires": [
+            [
+                "sd_ahAzO1np0BFznnpl"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "editFormComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_ahAzO1np0BFznnpl",
+        "type": "Script",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.countries = bh.local?.countries?.data\n\nif (page?.editData) {\n    page.weather = page?.editData?.weather\n    page.date = {\n        date: page?.editData?.date,\n        dateDiff: page?.editData?.dateDiff,\n        currentDate: page?.editData?.currentDate\n    }\n\n    console.log(page?.editData, 'edit data consoling on render')\n\n    page.addDetailsForm = new page.formGroup({\n        date: new page.formControl(page?.editData?.date, [page.validator.required]),\n        country: new page.formControl(page?.editDate?.country, [page.validator.required]),\n        state: new page.formControl(page?.editData?.state, [page.validator.required])\n    })\n}else{\n     page.weather = 0\n    page.date = {\n        date: '',\n        dateDiff: '',\n        currentDate: moment().format('YYYY-MM-DD')\n    }\n\n    page.addDetailsForm = new page.formGroup({\n        date: new page.formControl('', [page.validator.required]),\n        country: new page.formControl('', [page.validator.required]),\n        state: new page.formControl('', [page.validator.required])\n    })\n}",
+        "functionName": "sd_ahAzO1np0BFznnpl",
+        "category": "Function",
+        "x": 800,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "editFormComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_2ftrjuVFoYNEIHCL",
+        "type": "PageStart",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "select states",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "country",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "selectStates",
+        "category": "General",
+        "x": 605,
+        "y": 240,
+        "wires": [
+            [
+                "sd_mXhlbHmHuu6MfABT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "editFormComponent"
+    },
+    {
+        "id": "sd_mXhlbHmHuu6MfABT",
+        "type": "Script",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input?.country?.value?.states,'states')\npage.country = bh.input?.country?.value\npage.weatherData = 0\npage.states = bh.input?.country?.value?.states",
+        "functionName": "sd_mXhlbHmHuu6MfABT",
+        "category": "Function",
+        "x": 840,
+        "y": 240,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "editFormComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_WN6wEAK7yBUgUtmr",
+        "type": "PageStart",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "get weather details",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "state",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "getWeatherDetails",
+        "category": "General",
+        "x": 105,
+        "y": 380,
+        "wires": [
+            [
+                "sd_8HL7BJnAzHJyC0en"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "editFormComponent"
+    },
+    {
+        "id": "sd_QJtNujaeOB9HOftP",
+        "type": "Script",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.local.result,'weather result showing flow page')\npage.weather = bh.local?.result?.main?.feels_like",
+        "functionName": "sd_QJtNujaeOB9HOftP",
+        "category": "Function",
+        "x": 545,
+        "y": 380,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "editFormComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_9QvVzQQBVHTqEKWy",
+        "type": "PageCallService",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_CK4a3TO3vRkIuzHm",
+            "type": "tab",
+            "createdDate": "2024-02-20T04:50:49.891Z",
+            "label": "userService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_wOWTr4KgfdNpheyr",
+            "flowName": "fetchWeatherData"
+        },
+        "inputVariables": [
+            {
+                "key": "state",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "state.value.name"
+            },
+            {
+                "key": "result",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            },
+            {
+                "key": "country",
+                "map": true,
+                "valueType": "this.page",
+                "value": "country.name"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "result",
+                "valueType": "bh.local",
+                "value": "result",
+                "mapVarName": "result",
+                "localVar": "bh.local.result"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/userService",
+        "startName": "fetchWeatherData",
+        "inputParams": [
+            "bh.input.state.value.name",
+            null,
+            "this.page.country.name"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_9QvVzQQBVHTqEKWy",
+        "category": "General",
+        "x": 360,
+        "y": 380,
+        "wires": [
+            [
+                "sd_QJtNujaeOB9HOftP"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "editFormComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_8HL7BJnAzHJyC0en",
+        "type": "Script",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.state = bh?.input?.state?.value\nconsole.log(bh?.input?.state?.value,'state on change working')\npage.weather = 0",
+        "functionName": "sd_8HL7BJnAzHJyC0en",
+        "category": "Function",
+        "x": 220,
+        "y": 380,
+        "wires": [
+            [
+                "sd_9QvVzQQBVHTqEKWy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "editFormComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_S635ZMAuVJOm83cb",
+        "type": "PageStart",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "submit",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "submit",
+        "category": "General",
+        "x": 105,
+        "y": 520,
+        "wires": [
+            [
+                "sd_E8GRN3DOur5DLDTm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "editFormComponent"
+    },
+    {
+        "id": "sd_E8GRN3DOur5DLDTm",
+        "type": "Script",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "submit validation",
+        "script": "if (!page?.addDetailsForm?.value?.country || page?.addDetailsForm?.value?.country?.name?.trim().length == 0) {\n    page.addDetailsForm.get('country').status = 'INVALID'\n    return\n}\n\nif (!page?.addDetailsForm?.value?.state || page?.addDetailsForm?.value?.state?.name?.trim().length == 0) {\n    page.addDetailsForm.get('state').status = 'INVALID'\n    return\n}\n\nif (!page?.addDetailsForm?.value?.date) {\n    page.addDetailsForm.get('date').status = 'INVALID'\n    return\n}\n\nconst isNew = page?.editData ? false : true\n\nbh.local.response = {\n    isNew: isNew,\n    index: page?.editData?.index,\n    date: moment(page?.date?.date).format('YYYY-MM-DD'),\n    dateDiff: page?.date?.dateDiff,\n    currentDate: moment(page?.date?.currentDate).format('YYYY-MM-DD'),\n    country: page?.country?.name,\n    state: page?.state?.name,\n    weather: page?.weather\n}",
+        "functionName": "submitValidation",
+        "category": "Function",
+        "x": 285,
+        "y": 520,
+        "wires": [
+            [
+                "sd_H0yqED9XP1g7r73o"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "editFormComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_H0yqED9XP1g7r73o",
+        "type": "Output",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "bh.pageOutput.response",
+        "data": "bh.local.response",
+        "functionName": "sd_H0yqED9XP1g7r73o",
+        "category": "Function",
+        "x": 445,
+        "y": 520,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "bh.pageOutput",
+                "value": "response",
+                "constant": false
+            },
+            "data": {
+                "type": "bh.local",
+                "value": "response",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "editFormComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_7ESyXcoibDsrfk8E",
+        "type": "PageStart",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "on date changes",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "onDateChanges",
+        "category": "General",
+        "x": 705,
+        "y": 380,
+        "wires": [
+            [
+                "sd_LWRSZWerhqSeYfLg"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "editFormComponent"
+    },
+    {
+        "id": "sd_LWRSZWerhqSeYfLg",
+        "type": "Script",
+        "z": "sd_L6jNvcEyXNvCSMJ7",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh?.input?.date, 'date consoling')\nlet date: any = new Date(bh.input.date)\nconst currentDate: any = new Date(page?.date?.currentDate)\nconsole.log('current date',currentDate)\nconsole.log(Math.abs(currentDate.getTime() - date.getTime()), 'date difference consoling')\n\nconst timeDifferenceMs = Math.abs(currentDate.getTime() - date.getTime())\n\nconst daysDifference = Math.floor(timeDifferenceMs / (1000 * 60 * 60 * 24));\n\nconst hoursDifference = Math.floor((timeDifferenceMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\n\nconsole.log(`${daysDifference} Days ${hoursDifference} Hours`)\n\npage.date = {\n    dateDiff: `${daysDifference} Days ${hoursDifference} Hours`,\n    currentDate :currentDate,\n    date : date\n}",
+        "functionName": "sd_LWRSZWerhqSeYfLg",
+        "category": "Function",
+        "x": 880,
+        "y": 380,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "editFormComponent",
+        "generated": true
+    }
+]

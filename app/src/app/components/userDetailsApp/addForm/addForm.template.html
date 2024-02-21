@@ -2,7 +2,7 @@
   <bh-navBar></bh-navBar>
   <form fxLayout="row" fxLayoutAlign="center center" [formGroup]="page.addForm" style="width:100%;">
     <div fxLayout="column wrap" class="addFormCard" fxFlex="98" fxLayoutAlign="center space-between" [fxShow]="true" fxFlex.gt-sm="85">
-      <h2>
+      <h2 style="text-align:center;">
         {{page.locales.keys.ADD_DETAILS}}
       </h2>
       <div fxLayout="row wrap" style="width:100%;" fxLayoutGap="5" fxLayoutAlign="space-evenly stretch" [fxShow]="true">
@@ -64,7 +64,10 @@
 
         </mat-form-field>
       </div>
-      <div fxLayout="row wrap" style="margin-bottom:5px;" fxLayoutAlign="center stretch" [fxShow]="true"><lib-file-upload [nFileUploadAcceptableFileTypes]="[pdf,img,jpg]" [nFileUploadSelectMultiple]="false" [nFileUploadChangeLabelWithFileName]="false" [nFileUploadDisabled]="false" (nFileUploadOnChange)="fileUploading($event)" style="width:94%;"></lib-file-upload></div><button mat-button style="margin-bottom:5px;" class="add-more-button" (click)="addDetails()" type="submit">Add More</button><button mat-button class="submit-button" (click)="submitForm()" type="submit">submit</button>
+      <div fxLayout="row wrap" style="margin-bottom:5px;" fxLayoutAlign="center stretch" [fxShow]="true"><lib-file-upload [nFileUploadAcceptableFileTypes]="[pdf,img,jpg]" [nFileUploadSelectMultiple]="false" [nFileUploadChangeLabelWithFileName]="false" [nFileUploadDisabled]="false" (nFileUploadOnChange)="fileUploading($event)" style="width:94%;"></lib-file-upload></div>
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="9">
+        <button mat-button style="width:90%;" class="add-more-button" (click)="addDetails()" type="submit">Add More</button><button mat-button style="width:90%;" class="submit-button" (click)="submitForm()" type="submit">submit</button>
+      </div>
     </div>
   </form>
 </div>

@@ -8,6 +8,10 @@
         "details-list-edit-button",
         "details-list-table",
         "details-list-rows",
-        "header"
+        "header",
+        "modal",
+        "modal-content",
+        "close-modal",
+        "form_container"
     ]
 }

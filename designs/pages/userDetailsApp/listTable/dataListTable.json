@@ -28,7 +28,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "dataListTableComponent"
+        "serviceName": "dataListTableComponent",
+        "generated": false
     },
     {
         "id": "sd_yfYzMaiEO5w632rv",
@@ -128,9 +129,9 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
+        "generated": true,
         "generateNext": false,
-        "serviceName": "dataListTableComponent",
-        "generated": true
+        "serviceName": "dataListTableComponent"
     },
     {
         "id": "sd_dnWBF4FmoIh15z4P",
@@ -174,16 +175,17 @@
         "flow_type": "sync",
         "functionName": "navigateToDetailViewPage",
         "category": "General",
-        "x": 65,
+        "x": 85,
         "y": 140,
         "wires": [
             [
-                "sd_KwXSgby9bEsqM6cp"
+                "sd_8xUGfZsHZxKZyurI"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "dataListTableComponent"
+        "serviceName": "dataListTableComponent",
+        "generated": false
     },
     {
         "id": "sd_KwXSgby9bEsqM6cp",
@@ -227,7 +229,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "dataListTableComponent"
+        "serviceName": "dataListTableComponent",
+        "generated": false
     },
     {
         "id": "sd_L5oyfwOA8HmlVtIb",
@@ -334,7 +337,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "dataListTableComponent"
+        "serviceName": "dataListTableComponent",
+        "generated": false
     },
     {
         "id": "sd_glrwM3pBpuNvvxgA",
@@ -382,6 +386,28 @@
         "y": 630,
         "wires": [
             []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dataListTableComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_8xUGfZsHZxKZyurI",
+        "type": "Script",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.query = {id:bh.input?.id}",
+        "functionName": "sd_8xUGfZsHZxKZyurI",
+        "category": "Function",
+        "x": 305,
+        "y": 140,
+        "wires": [
+            [
+                "sd_KwXSgby9bEsqM6cp"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,

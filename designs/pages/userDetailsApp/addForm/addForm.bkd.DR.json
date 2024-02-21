@@ -362,7 +362,7 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "",
+                            "_value": "text-align:center;",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -823,7 +823,6 @@
                         "paletteKey": "NG-Input",
                         "parentEditorKey": "fb965796-42f5-e768-03fe-a5d6ab35feb8",
                         "isAdvancedComponent": true,
-                        "isCommented": "false",
                         "commentid": null,
                         "designerReference": [
                             {
@@ -1646,7 +1645,6 @@
                         "0ddc5421-6de8-de38-4107-13c8dbdbcd11": {
                             "paletteKey": "NG-Radio",
                             "parentEditorKey": "e4e1cf58-7d9e-f1ee-a35a-a675f5fe3187",
-                            "isCommented": "false",
                             "commentid": null,
                             "designerReference": [
                                 {
@@ -3298,80 +3296,10 @@
                         ]
                     }
                 },
-                "8a6037c1-5b04-796e-16b4-f904d330d2ca": {
-                    "paletteKey": "NG-button",
+                "39c0450d-0140-0473-b731-ae6965871389": {
+                    "paletteKey": "Html5",
                     "parentEditorKey": "260715e9-bc10-bd80-fd4d-0e931bf2a94e",
-                    "commentid": null,
-                    "designerReference": [
-                        {
-                            "_key": "style",
-                            "_value": "margin-bottom:5px;",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "class",
-                            "_value": [
-                                "add-more-button"
-                            ],
-                            "_type": "dav",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "buttonname",
-                            "_value": "Add More",
-                            "_type": "a",
-                            "_attrDef": "p",
-                            "_useAsLabel": true
-                        },
-                        {
-                            "_key": "color",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "(click)",
-                            "_value": "addDetails()",
-                            "_type": "kv",
-                            "_attrDef": "p",
-                            "objValue": {
-                                "nodeID": "sd_qpD2nZDVPHn8Yw8D",
-                                "functionName": "addDetails",
-                                "activeTree": "pages",
-                                "z": "sd_FzzyYK039nXc1B4v",
-                                "input": []
-                            }
-                        },
-                        {
-                            "_key": "[disabled]",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[disableRipple]",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "type",
-                            "_value": "submit",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "routerLink",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        }
-                    ]
-                },
-                "1336360c-9d25-c2ed-093d-4d7e55ee9938": {
-                    "paletteKey": "NG-button",
-                    "parentEditorKey": "260715e9-bc10-bd80-fd4d-0e931bf2a94e",
+                    "isAdvancedComponent": true,
                     "commentid": null,
                     "designerReference": [
                         {
@@ -3382,63 +3310,365 @@
                         },
                         {
                             "_key": "class",
-                            "_value": [
-                                "submit-button"
-                            ],
+                            "_value": "",
                             "_type": "dav",
                             "_attrDef": "p"
                         },
                         {
-                            "_key": "buttonname",
-                            "_value": "submit",
-                            "_type": "a",
+                            "_key": "htmlElement",
+                            "_value": "div",
+                            "_type": "dav",
                             "_attrDef": "p",
                             "_useAsLabel": true
                         },
                         {
-                            "_key": "color",
+                            "_key": "tagType",
                             "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
                         },
                         {
-                            "_key": "(click)",
-                            "_value": "submitForm()",
+                            "_key": "name",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p",
-                            "objValue": {
-                                "nodeID": "sd_yWwKfKx6vpz7e2tR",
-                                "functionName": "submitForm",
-                                "activeTree": "pages",
-                                "z": "sd_FzzyYK039nXc1B4v",
-                                "input": []
-                            }
+                            "_visibility": false
                         },
                         {
-                            "_key": "[disabled]",
+                            "_key": "sandbox",
                             "_value": "",
                             "_type": "kv",
-                            "_attrDef": "p"
+                            "_attrDef": "p",
+                            "_visibility": false
                         },
                         {
-                            "_key": "[disableRipple]",
+                            "_key": "src",
                             "_value": "",
                             "_type": "kv",
-                            "_attrDef": "p"
+                            "_attrDef": "p",
+                            "_visibility": false
                         },
                         {
-                            "_key": "type",
-                            "_value": "submit",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "routerLink",
+                            "_key": "srcdoc",
                             "_value": "",
                             "_type": "kv",
-                            "_attrDef": "p"
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "width",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "[autoplay]",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "[loop]",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "data",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "audioSource",
+                            "_value": [],
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "videoSource",
+                            "_value": [],
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "audioDatasource",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "audioSrc",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "audioType",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "videoDatasource",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "videoSrc",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "videoType",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "(audioplay)",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "(videoplay)",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "(audiopause)",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "(videopause)",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "(audioended)",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "(videoended)",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "fxLayout",
+                            "_value": "row",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        },
+                        {
+                            "_key": "fxLayoutAlign",
+                            "_value": "space-between center",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        },
+                        {
+                            "_key": "fxLayoutGap",
+                            "_value": "9",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
-                    ]
+                    ],
+                    "8a6037c1-5b04-796e-16b4-f904d330d2ca": {
+                        "paletteKey": "NG-button",
+                        "parentEditorKey": "39c0450d-0140-0473-b731-ae6965871389",
+                        "commentid": null,
+                        "designerReference": [
+                            {
+                                "_key": "style",
+                                "_value": "width:90%;",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "class",
+                                "_value": [
+                                    "add-more-button"
+                                ],
+                                "_type": "dav",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "buttonname",
+                                "_value": "Add More",
+                                "_type": "a",
+                                "_attrDef": "p",
+                                "_useAsLabel": true
+                            },
+                            {
+                                "_key": "color",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "(click)",
+                                "_value": "addDetails()",
+                                "_type": "kv",
+                                "_attrDef": "p",
+                                "objValue": {
+                                    "nodeID": "sd_qpD2nZDVPHn8Yw8D",
+                                    "functionName": "addDetails",
+                                    "activeTree": "pages",
+                                    "z": "sd_FzzyYK039nXc1B4v",
+                                    "input": []
+                                }
+                            },
+                            {
+                                "_key": "[disabled]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "[disableRipple]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "type",
+                                "_value": "submit",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "routerLink",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            }
+                        ]
+                    },
+                    "a212d2bc-aa13-8249-7ef6-a80211de3e99": {
+                        "paletteKey": "html-editor",
+                        "parentEditorKey": "39c0450d-0140-0473-b731-ae6965871389",
+                        "isAdvancedChildComponent": true,
+                        "commentid": null,
+                        "designerReference": [
+                            {
+                                "_key": "style",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "class",
+                                "_value": "",
+                                "_type": "dav",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "html",
+                                "_value": "",
+                                "_type": "a",
+                                "_attrDef": "p"
+                            }
+                        ]
+                    },
+                    "1336360c-9d25-c2ed-093d-4d7e55ee9938": {
+                        "paletteKey": "NG-button",
+                        "parentEditorKey": "39c0450d-0140-0473-b731-ae6965871389",
+                        "commentid": null,
+                        "designerReference": [
+                            {
+                                "_key": "style",
+                                "_value": "width:90%;",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "class",
+                                "_value": [
+                                    "submit-button"
+                                ],
+                                "_type": "dav",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "buttonname",
+                                "_value": "submit",
+                                "_type": "a",
+                                "_attrDef": "p",
+                                "_useAsLabel": true
+                            },
+                            {
+                                "_key": "color",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "(click)",
+                                "_value": "submitForm()",
+                                "_type": "kv",
+                                "_attrDef": "p",
+                                "objValue": {
+                                    "nodeID": "sd_yWwKfKx6vpz7e2tR",
+                                    "functionName": "submitForm",
+                                    "activeTree": "pages",
+                                    "z": "sd_FzzyYK039nXc1B4v",
+                                    "input": []
+                                }
+                            },
+                            {
+                                "_key": "[disabled]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "[disableRipple]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "type",
+                                "_value": "submit",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "routerLink",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            }
+                        ]
+                    }
                 }
             }
         },

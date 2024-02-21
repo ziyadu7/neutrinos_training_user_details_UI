@@ -505,7 +505,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "form validation",
-        "script": "bh.local.data = page?.addForm?.value\n\nif(bh?.input?.isOk==false){\n    return\n}\n\nconsole.log('ivde ethuoo')\n\nif (!page?.addForm?.value?.country) {\n    page.addForm.get('country').status = 'INVALID'\n    return\n}\n\nif (!page?.addForm?.value?.state) {\n    page.addForm.get('state').status = 'INVALID'\n    return\n}\n\n// if(!page?.weatherDetails){\n//       throw {\n//         message:'Weather details not get'\n//     }\n// }\n\nif (!page?.addForm?.value?.date) {\n    page.addForm.get('date').status = 'INVALID'\n    return\n}\n\nif (page?.data?.details) {\n    page.data = {\n        name: page?.addForm?.value?.name,\n        phone: page?.addForm?.value?.phone,\n        email: page?.addForm?.value?.email,\n        file: page?.file,\n        sex: page?.gender,\n        details: [...page?.data?.details, { date: page?.addForm?.value?.date, currentDate: page?.date?.currentDate, dateDiff: page?.date?.difference, weather: page?.weatherDetails?.main?.feels_like,country:page?.country?.name,state:page?.state }]\n    }\n}else{\n    page.data = {\n    name : page?.addForm?.value?.name,\n    phone:page?.addForm?.value?.phone,\n    email:page?.addForm?.value?.email,\n    file:page?.file,\n    sex:page?.gender,\n    details:[{date:page?.addForm?.value?.date,currentDate:page?.date?.currentDate,dateDiff:page?.date?.difference, weather: page?.weatherDetails?.main?.feels_like,country:page?.country?.name,state:page?.state }]\n}\n}\n\nconsole.log('ivde ething ttoo',page?.data) \n\nbh.local.response = {\n    message: 'value add successfully',\n    status: 'true'\n}",
+        "script": "bh.local.data = page?.addForm?.value\n\nif(bh?.input?.isOk==false){\n    return\n}\n\nif (!page?.addForm?.value?.country) {\n    page.addForm.get('country').status = 'INVALID'\n    return\n}\n\nif (!page?.addForm?.value?.state) {\n    page.addForm.get('state').status = 'INVALID'\n    return\n}\n\n// if(!page?.weatherDetails){\n//       throw {\n//         message:'Weather details not get'\n//     }\n// }\n\nif (!page?.addForm?.value?.date) {\n    page.addForm.get('date').status = 'INVALID'\n    return\n}\n\nif (page?.data?.details) {\n    page.data = {\n        name: page?.addForm?.value?.name,\n        phone: page?.addForm?.value?.phone,\n        email: page?.addForm?.value?.email,\n        file: page?.file,\n        sex: page?.gender,\n        details: [...page?.data?.details, { date: page?.addForm?.value?.date, currentDate: page?.date?.currentDate, dateDiff: page?.date?.difference, weather: page?.weatherDetails?.main?.feels_like,country:page?.country?.name,state:page?.state }]\n    }\n}else{\n    page.data = {\n    name : page?.addForm?.value?.name,\n    phone:page?.addForm?.value?.phone,\n    email:page?.addForm?.value?.email,\n    file:page?.file,\n    sex:page?.gender,\n    details:[{date:page?.addForm?.value?.date,currentDate:page?.date?.currentDate,dateDiff:page?.date?.difference, weather: page?.weatherDetails?.main?.feels_like,country:page?.country?.name,state:page?.state }]\n}\n}\n\nconsole.log('ivde ething ttoo',page?.data) \n\nbh.local.response = {\n    message: 'value add successfully',\n    status: 'true'\n}",
         "functionName": "formValidation",
         "category": "Function",
         "x": 305,
@@ -672,7 +672,9 @@
             "value": "2500"
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
@@ -799,7 +801,9 @@
             "value": "2500"
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
@@ -868,7 +872,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "if(bh?.input?.isOk==false){\n    return\n}\n\nfunction isValidImage(file: any) {\n    const acceptedImageTypes = [\"image/jpeg\", \"image/jpg\", \"image/avif\", \"image/png\", \"image/webp\", \"application/pdf\"]\n    return acceptedImageTypes.includes(file?.type);\n}\n\nconsole.log(page?.file,'file consoling in validation page')\n\nif (!isValidImage(page?.file)) {\n    throw {\n        message: 'Add valid image or pdf'\n    }\n}\n\nif(!page?.data){\n    throw {\n        message : 'Add details'\n    }\n}\n\nconst formData = new FormData()\n\nconst detailsJSON = JSON.stringify(page?.data?.details);\n\nformData.append('name',page?.data?.name)\nformData.append('phone',page?.data?.phone)\nformData.append('email',page?.data?.email)\nformData.append('sex',page?.data?.sex)\nformData.append('file',page?.data?.file)\nformData.append('details',detailsJSON)\n\nconsole.log(page?.data,'form data consoling on submit ')\n\npage.data = formData\n",
+        "script": "if(bh?.input?.isOk==false){\n    return\n}\n\nfunction isValidImage(file: any) {\n    const acceptedImageTypes = [\"image/jpeg\", \"image/jpg\", \"image/avif\", \"image/png\", \"image/webp\", \"application/pdf\"]\n    return acceptedImageTypes.includes(file?.type);\n}\n\nif (!isValidImage(page?.file)) {\n    throw {\n        message: 'Add valid image or pdf'\n    }\n}\n\nif(!page?.data){\n    throw {\n        message : 'Add details'\n    }\n}\n\nconst formData = new FormData()\n\nconst detailsJSON = JSON.stringify(page?.data?.details);\n\nformData.append('name',page?.data?.name)\nformData.append('phone',page?.data?.phone)\nformData.append('email',page?.data?.email)\nformData.append('sex',page?.data?.sex)\nformData.append('file',page?.data?.file)\nformData.append('details',detailsJSON)\n\npage.data = formData\n",
         "functionName": "sd_AwEdxrP3ehCvL79i",
         "category": "Function",
         "x": 485,
@@ -982,6 +986,7 @@
         "inputParams": [
             null
         ],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_N0u9IUWfoJcHbRao",
         "category": "General",
@@ -1043,6 +1048,7 @@
         "inputParams": [
             null
         ],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_3BjrpbuhSZEOtkVl",
         "category": "General",
@@ -1120,7 +1126,7 @@
         "y": 960,
         "wires": [
             [
-                "sd_yCegGGtYYTEJ0bTJ"
+                "sd_OgjfcqFsByEZ1MUq"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1129,16 +1135,58 @@
         "generated": true
     },
     {
-        "id": "sd_yCegGGtYYTEJ0bTJ",
-        "type": "Script",
+        "id": "sd_OgjfcqFsByEZ1MUq",
+        "type": "PageSwitch",
         "z": "sd_FzzyYK039nXc1B4v",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(bh.local.response,'response consoling')",
-        "functionName": "sd_yCegGGtYYTEJ0bTJ",
+        "property": "response.statusCode",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.response.statusCode",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "200",
+                "vt": "num",
+                "gv": "200"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "functionName": "sd_OgjfcqFsByEZ1MUq",
         "category": "Function",
-        "x": 805,
+        "x": 785,
+        "y": 960,
+        "wires": [
+            [
+                "sd_dZmzzgWqwe6QkL1m"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "addFormComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_dZmzzgWqwe6QkL1m",
+        "type": "Navigation",
+        "z": "sd_FzzyYK039nXc1B4v",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "path": "/listDetails",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
+        "functionName": "sd_dZmzzgWqwe6QkL1m",
+        "category": "Navigation",
+        "x": 900,
         "y": 960,
         "wires": [
             []

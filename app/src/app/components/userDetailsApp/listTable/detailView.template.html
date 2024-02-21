@@ -1,5 +1,5 @@
 <div>
-  <bh-navBar></bh-navBar>
+  <bh-navBar></bh-navBar><bh-editForm *ngIf="page.modalFormOpen == true" [editData]="page?.editData" (response)="afterEdit($event)" (closeModal)="modalFormManaging($event)"></bh-editForm>
   <div fxLayout="row" fxLayoutAlign="center center" style="width:100%;">
     <div fxLayout="column wrap" class="addFormCard" fxFlex="98" fxLayoutAlign="center space-between" [fxShow]="true" fxFlex.gt-sm="85">
       <h2>
@@ -23,12 +23,12 @@
         </div>
         <div fxLayout="row wrap" fxLayoutGap="5" fxLayoutAlign="center stretch" [fxShow]="true"><mat-radio-group formControlName="sex" [required]="false"></mat-radio-group>
           <p>
-            Sex : </p>
+            Sex : {{page?.data?.sex}}</p>
         </div>
       </form>
       <div *ngFor="let subData of page?.details">
         <div fxLayout="row" fxLayoutAlign="end center">
-          <button mat-raised-button style="margin-bottom:5px;" color="primary">Edit</button>
+          <button mat-raised-button style="margin-bottom:5px;" color="primary" (click)="modalFormManaging(&apos;open&apos;,subData)">Edit</button>
         </div>
         <div fxLayout="row wrap" fxLayoutGap="5" fxLayoutAlign="space-evenly stretch" [fxShow]="true">
           <mat-form-field style="width:45%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
@@ -36,7 +36,7 @@
 
           </mat-form-field>
           <mat-form-field style="width:45%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-            <input matInput type="Date" placeholder="today" value="{{subData?.currentDate.slice(0,10)}}" [required]="false" [disabled]="true">
+            <input matInput type="Date" placeholder="today" value="{{subData?.currentDate?.slice(0,10)||subData?.currentDate}}" [required]="false" [disabled]="true">
 
           </mat-form-field>
         </div>
@@ -57,8 +57,12 @@
           </mat-form-field>
         </div>
       </div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <img [src]="page?.data?.file" width="50%">
+      </div>
+      <div fxLayout="row wrap" style="margin-bottom:5px;" fxLayoutAlign="center stretch" [fxShow]="true"><lib-file-upload [nFileUploadAcceptableFileTypes]="[pdf,img,jpg]" [nFileUploadSelectMultiple]="false" [nFileUploadChangeLabelWithFileName]="false" [nFileUploadDisabled]="false" (nFileUploadOnChange)="fileUploading($event)" style="width:94%;"></lib-file-upload></div>
       <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="9">
-        <button mat-button style="margin-bottom:5px;width:100%;" class="add-more-button" type="submit">Add More</button><button mat-button style="width:100%;" class="submit-button" type="submit">submit Edits</button>
+        <button mat-button style="margin-bottom:5px;width:100%;" class="add-more-button" (click)="modalFormManaging(&apos;open&apos;,false)" type="submit">Add More</button><button mat-button style="width:100%;" class="submit-button" (click)="submitMainForm()" type="submit">submit Edits</button>
       </div>
     </div>
   </div>

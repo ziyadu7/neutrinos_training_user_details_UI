@@ -152,6 +152,39 @@ export class userService {
       return await this.errorHandler(bh, e, 'sd_bs8myCrkjlEeB8hR');
     }
   }
+
+  async updateDetails(
+    response: any = undefined,
+    body: any = undefined,
+    query: any = undefined,
+    ...others
+  ) {
+    let bh: any = {
+      input: {
+        response,
+        body,
+        query,
+      },
+      local: {},
+    };
+    try {
+      bh = this.sdService.__constructDefault(bh);
+
+      bh = await this.sd_hFYXw8G3R1UMtOHU(bh);
+      //appendnew_next_updateDetails
+      return (
+        // formatting output variables
+        {
+          input: {
+            response: bh.input.response,
+          },
+          local: {},
+        }
+      );
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_noOT5LUeIApJFuuZ');
+    }
+  }
   //appendnew_flow_userService_start
 
   async sd_UjoyFvW5hMn6r3t9(bh) {
@@ -283,6 +316,68 @@ export class userService {
     }
   }
 
+  async sd_hFYXw8G3R1UMtOHU(bh) {
+    try {
+      bh.local.url = bh.system.environment.properties.ssdURL + `details`;
+      console.log(bh.input.body, 'full body');
+      bh = await this.sd_jGvndGkiq5mcZ5uX(bh);
+      //appendnew_next_sd_hFYXw8G3R1UMtOHU
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_hFYXw8G3R1UMtOHU');
+    }
+  }
+
+  async sd_jGvndGkiq5mcZ5uX(bh) {
+    try {
+      let requestOptions = {
+        url: bh.local.url,
+        method: 'put',
+        responseType: 'json',
+        headers: {},
+        params: bh.input.query,
+        body: bh.input.body,
+      };
+      bh.input.response = await this.sdService.nHttpRequest(requestOptions);
+      //appendnew_next_sd_jGvndGkiq5mcZ5uX
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_jGvndGkiq5mcZ5uX');
+    }
+  }
+
+  async sd_8rXQ6wUrP5O67Zca(bh) {
+    try {
+      console.log(bh.error, 'error consoling');
+      const colonIndex = bh.error?.error?.indexOf(':');
+
+      const atIndex = bh.error?.error?.indexOf(' at', colonIndex);
+
+      bh.error.message = bh.error?.error?.substring(colonIndex + 1, atIndex);
+      console.log(bh.error.message, 'error message consoling');
+      bh = await this.sd_hLUXvmeif2sQobqi(bh);
+      //appendnew_next_sd_8rXQ6wUrP5O67Zca
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_8rXQ6wUrP5O67Zca');
+    }
+  }
+
+  async sd_hLUXvmeif2sQobqi(bh) {
+    try {
+      this.matSnackBar.open(bh.error.message, 'Ok', {
+        duration: 2500,
+        direction: 'ltr',
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+      });
+      //appendnew_next_sd_hLUXvmeif2sQobqi
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_hLUXvmeif2sQobqi');
+    }
+  }
+
   //appendnew_node
 
   // error_handler_slot
@@ -290,7 +385,24 @@ export class userService {
     console.error(e);
     bh.error = e;
     bh.errorSource = src;
-    throw e;
+    if (
+      false ||
+      (await this.errorCatching(bh))
+      /*appendnew_next_Catch*/
+    ) {
+      return bh;
+    } else {
+      throw e;
+    }
+  }
+  async errorCatching(bh) {
+    const catchConnectedNodes = ['sd_8rXQ6wUrP5O67Zca', 'sd_hLUXvmeif2sQobqi'];
+    if (catchConnectedNodes.includes(bh.errorSource)) {
+      return false;
+    }
+    bh = await this.sd_8rXQ6wUrP5O67Zca(bh);
+    //appendnew_next_errorCatching
+    return true;
   }
   //appendnew_flow_userService_Catch
 }

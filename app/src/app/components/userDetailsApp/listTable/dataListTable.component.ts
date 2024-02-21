@@ -71,7 +71,7 @@ export class dataListTableComponent implements AfterViewInit {
         .constructFlowObject(this);
       bh.input = { id };
       bh.local = {};
-      bh = this.sd_KwXSgby9bEsqM6cp(bh);
+      bh = this.sd_8xUGfZsHZxKZyurI(bh);
       //appendnew_next_navigateToDetailViewPage
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_SuXqK5dgGBe1HXUQ');
@@ -143,6 +143,18 @@ export class dataListTableComponent implements AfterViewInit {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_dnWBF4FmoIh15z4P');
+    }
+  }
+
+  sd_8xUGfZsHZxKZyurI(bh) {
+    try {
+      const page = this.page;
+      bh.local.query = { id: bh.input?.id };
+      bh = this.sd_KwXSgby9bEsqM6cp(bh);
+      //appendnew_next_sd_8xUGfZsHZxKZyurI
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_8xUGfZsHZxKZyurI');
     }
   }
 
