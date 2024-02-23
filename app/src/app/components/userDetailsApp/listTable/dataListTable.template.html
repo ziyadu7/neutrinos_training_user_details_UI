@@ -34,8 +34,8 @@
           <ng-container matColumnDef="1c9b1263-7854-3261-cb02-7bfece7d6256">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let table; let i = index;">
-              <div style="width:25%;">
-                <button mat-raised-button color="primary" (click)="navigateToDetailViewPage(table?.id)">View</button>
+              <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="4" style="width:25%;">
+                <button mat-raised-button color="primary" (click)="navigateToDetailViewPage(table?.id)">View</button><button mat-raised-button color="warn" (click)="deleteData(table?.id)">Delete</button>
               </div>
             </td>
           </ng-container>

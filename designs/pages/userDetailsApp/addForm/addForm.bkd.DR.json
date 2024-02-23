@@ -3522,7 +3522,7 @@
                             },
                             {
                                 "_key": "buttonname",
-                                "_value": "Add More",
+                                "_value": "Add",
                                 "_type": "a",
                                 "_attrDef": "p",
                                 "_useAsLabel": true

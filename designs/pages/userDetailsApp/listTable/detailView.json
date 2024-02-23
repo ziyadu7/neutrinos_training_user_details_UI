@@ -89,6 +89,8 @@
         "viewType": "pages",
         "nodeType": "flow",
         "name": "",
+        "tmpOp": "",
+        "tmpOpType": "",
         "operationType": "queryParams",
         "operation": "getAll",
         "key": "bh",
@@ -463,7 +465,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "submit form validation",
-        "script": "function validateEmail(email: any) {\n    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n    return emailRegex.test(email);\n}\n\nfunction validateMobile(phone: any) {\n    const phoneRegex = /^\\d{10}$/;\n    return phoneRegex.test(phone);\n}\n\n\n\nif (page?.mainEditForm?.value?.name?.trim().length == 0) {\n    page.mainEditForm.get('name').status = 'INVALID'\n    return\n}\n\nif (page?.mainEditForm?.value?.sex?.trim().length == 0) {\n    page.mainEditForm.get('sex').status = 'INVALID'\n    return\n}\n\nif (!validateMobile(page?.mainEditForm?.value?.phone)) {\n    page.mainEditForm.get('phone').errors = {\n        regex_error: true\n    }\n    page.mainEditForm.get('phone').status = 'INVALID'\n    return\n}\n\nif (!validateEmail(page?.mainEditForm?.value?.email)) {\n    page.mainEditForm.get('email').errors = {\n        regex_error: true\n    }\n    page.mainEditForm.get('email').status = 'INVALID'\n    return\n}\n\n\nconst formData = new FormData()\n\nconst detailsJSON = JSON.stringify(page?.details);\nconst file = page?.file ? page?.file : []\n\nconsole.log(file,'file consoling at submit page')\n\nconst isNumberChange = page?.mainEditForm?.value?.phone == page?.data?.phone ?false:true\n\nconsole.log(isNumberChange,page?.mainEditForm?.value?.phone ,page?.data?.phone)\n\nformData.append('name', page?.mainEditForm?.value?.name)\nformData.append('phone', page?.mainEditForm?.value?.phone)\nformData.append('email', page?.mainEditForm?.value?.email)\nformData.append('sex', page?.mainEditForm?.value?.sex)\nformData.append('id', page?.data?.id)\nformData.append('file', file)\nformData.append('details', detailsJSON)\n\npage.body = formData\nbh.local.query = {isNumberChange:isNumberChange}\n",
+        "script": "function validateEmail(email: any) {\n    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n    return emailRegex.test(email);\n}\n\nfunction validateMobile(phone: any) {\n    const phoneRegex = /^\\d{10}$/;\n    return phoneRegex.test(phone);\n}\n\nif (page?.mainEditForm?.value?.name?.trim().length == 0) {\n    page.mainEditForm.get('name').status = 'INVALID'\n    return\n}\n\nif (page?.mainEditForm?.value?.sex?.trim().length == 0) {\n    page.mainEditForm.get('sex').status = 'INVALID'\n    return\n}\n\nif (!validateMobile(page?.mainEditForm?.value?.phone)) {\n    page.mainEditForm.get('phone').errors = {\n        regex_error: true\n    }\n    page.mainEditForm.get('phone').status = 'INVALID'\n    return\n}\n\nif (!validateEmail(page?.mainEditForm?.value?.email)) {\n    page.mainEditForm.get('email').errors = {\n        regex_error: true\n    }\n    page.mainEditForm.get('email').status = 'INVALID'\n    return\n}\n\n\nconst formData = new FormData()\n\nconst detailsJSON = JSON.stringify(page?.details);\nconst file = page?.file ? page?.file : []\n\nconsole.log(file,'file consoling at submit page')\n\nconst isNumberChange = page?.mainEditForm?.value?.phone == page?.data?.phone ?false:true\n\nconsole.log(isNumberChange,page?.mainEditForm?.value?.phone ,page?.data?.phone)\n\nformData.append('name', page?.mainEditForm?.value?.name)\nformData.append('phone', page?.mainEditForm?.value?.phone)\nformData.append('email', page?.mainEditForm?.value?.email)\nformData.append('sex', page?.mainEditForm?.value?.sex)\nformData.append('id', page?.data?.id)\nformData.append('file', file)\nformData.append('details', detailsJSON)\n\npage.body = formData\nbh.local.query = {isNumberChange:isNumberChange}\n",
         "functionName": "submitFormValidation",
         "category": "Function",
         "x": 340,
@@ -727,7 +729,9 @@
             "value": "2500"
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
@@ -775,6 +779,13 @@
         "nodeType": "flow",
         "name": "",
         "path": "/listDetails",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
         "functionName": "sd_pDuIxgiLL1BS3WgE",
         "category": "Navigation",
         "x": 1085,
@@ -842,7 +853,9 @@
             "value": "2500"
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
@@ -878,6 +891,112 @@
             [
                 "sd_8HbYx08mU9m1MA8H"
             ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "detailViewComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_Q06yuGXzqmy9TybP",
+        "type": "PageStart",
+        "z": "sd_PMiZvyRFcxv5v9TD",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "remove data",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "index",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "removeData",
+        "category": "General",
+        "x": 80,
+        "y": 680,
+        "wires": [
+            [
+                "sd_FyQ70k5OZ1yT1crf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "detailViewComponent"
+    },
+    {
+        "id": "sd_FyQ70k5OZ1yT1crf",
+        "type": "Script",
+        "z": "sd_PMiZvyRFcxv5v9TD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "remove data script",
+        "script": "console.log(bh.input?.index)\nlet index = bh.input?.index\nwhile(page?.details[index]){\n    page.details[index] = page?.details?.[index+1]\n    index++\n}\nconsole.log(page.details)\npage.details.pop()",
+        "functionName": "removeDataScript",
+        "category": "Function",
+        "x": 240,
+        "y": 680,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "detailViewComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_ZptXWTCK2WEqVR89",
+        "type": "PageStart",
+        "z": "sd_PMiZvyRFcxv5v9TD",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "gender changes",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "genderChanges",
+        "category": "General",
+        "x": 120,
+        "y": 160,
+        "wires": [
+            [
+                "sd_xtVTdyXhS0RbYHsM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "detailViewComponent"
+    },
+    {
+        "id": "sd_xtVTdyXhS0RbYHsM",
+        "type": "Script",
+        "z": "sd_PMiZvyRFcxv5v9TD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "change gender",
+        "script": "console.log(bh.input.event)\npage.data.sex = bh.input?.event?.value",
+        "functionName": "changeGender",
+        "category": "Function",
+        "x": 260,
+        "y": 160,
+        "wires": [
+            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,

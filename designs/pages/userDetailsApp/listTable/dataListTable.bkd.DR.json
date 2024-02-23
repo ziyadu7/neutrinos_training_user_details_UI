@@ -1169,35 +1169,27 @@
                                     "_type": "kv",
                                     "_attrDef": "p",
                                     "_visibility": false
+                                },
+                                {
+                                    "_key": "fxLayout",
+                                    "_value": "row",
+                                    "_type": "kv",
+                                    "_attrDef": "c"
+                                },
+                                {
+                                    "_key": "fxLayoutAlign",
+                                    "_value": "space-between center",
+                                    "_type": "kv",
+                                    "_attrDef": "c"
+                                },
+                                {
+                                    "_key": "fxLayoutGap",
+                                    "_value": "4",
+                                    "_type": "kv",
+                                    "_attrDef": "c"
                                 }
                             ],
-                            "a99647ee-e060-9ea6-065d-80362b55a657": {
-                                "paletteKey": "html-editor",
-                                "parentEditorKey": "4038b43b-cc8f-255d-6314-dbf18251082e",
-                                "isAdvancedChildComponent": true,
-                                "commentid": null,
-                                "designerReference": [
-                                    {
-                                        "_key": "style",
-                                        "_value": "",
-                                        "_type": "kv",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "class",
-                                        "_value": "",
-                                        "_type": "dav",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "html",
-                                        "_value": "",
-                                        "_type": "a",
-                                        "_attrDef": "p"
-                                    }
-                                ]
-                            },
-                            "4b33ac2d-4848-dc5c-5450-795425dda195": {
+                            "1b5388f6-ccd8-50a8-d8ba-212608b3207b": {
                                 "paletteKey": "NG-RaisedButton",
                                 "parentEditorKey": "4038b43b-cc8f-255d-6314-dbf18251082e",
                                 "commentid": null,
@@ -1264,6 +1256,103 @@
                                         "_key": "routerLink",
                                         "_value": "",
                                         "_type": "kv",
+                                        "_attrDef": "p"
+                                    }
+                                ]
+                            },
+                            "33966589-3d8d-30dc-7209-e80788e18b5b": {
+                                "paletteKey": "NG-RaisedButton",
+                                "parentEditorKey": "4038b43b-cc8f-255d-6314-dbf18251082e",
+                                "commentid": null,
+                                "designerReference": [
+                                    {
+                                        "_key": "style",
+                                        "_value": "",
+                                        "_type": "kv",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "class",
+                                        "_value": "",
+                                        "_type": "dav",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "buttonname",
+                                        "_value": "Delete",
+                                        "_type": "a",
+                                        "_attrDef": "p",
+                                        "_useAsLabel": true
+                                    },
+                                    {
+                                        "_key": "color",
+                                        "_value": "warn",
+                                        "_type": "kv",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "(click)",
+                                        "_value": "deleteData(table?.id)",
+                                        "_type": "kv",
+                                        "_attrDef": "p",
+                                        "objValue": {
+                                            "nodeID": "sd_FYZ9v5FJTdtuKKyf",
+                                            "functionName": "deleteData",
+                                            "activeTree": "pages",
+                                            "z": "sd_Jtqb1EvaK33ecx53",
+                                            "input": [
+                                                "table?.id"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "_key": "[disabled]",
+                                        "_value": "",
+                                        "_type": "kv",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "[disableRipple]",
+                                        "_value": "",
+                                        "_type": "kv",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "type",
+                                        "_value": "",
+                                        "_type": "kv",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "routerLink",
+                                        "_value": "",
+                                        "_type": "kv",
+                                        "_attrDef": "p"
+                                    }
+                                ]
+                            },
+                            "a99647ee-e060-9ea6-065d-80362b55a657": {
+                                "paletteKey": "html-editor",
+                                "parentEditorKey": "4038b43b-cc8f-255d-6314-dbf18251082e",
+                                "isAdvancedChildComponent": true,
+                                "commentid": null,
+                                "designerReference": [
+                                    {
+                                        "_key": "style",
+                                        "_value": "",
+                                        "_type": "kv",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "class",
+                                        "_value": "",
+                                        "_type": "dav",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "html",
+                                        "_value": "",
+                                        "_type": "a",
                                         "_attrDef": "p"
                                     }
                                 ]

@@ -28,8 +28,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "dataListTableComponent",
-        "generated": false
+        "serviceName": "dataListTableComponent"
     },
     {
         "id": "sd_yfYzMaiEO5w632rv",
@@ -129,9 +128,9 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generated": true,
         "generateNext": false,
-        "serviceName": "dataListTableComponent"
+        "serviceName": "dataListTableComponent",
+        "generated": true
     },
     {
         "id": "sd_dnWBF4FmoIh15z4P",
@@ -140,7 +139,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(bh.local.response,'data fetch response')\npage.tableData = bh.local?.response?.data",
+        "script": "page.tableData = bh.local?.response?.data",
         "functionName": "sd_dnWBF4FmoIh15z4P",
         "category": "Function",
         "x": 505,
@@ -184,8 +183,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "dataListTableComponent",
-        "generated": false
+        "serviceName": "dataListTableComponent"
     },
     {
         "id": "sd_KwXSgby9bEsqM6cp",
@@ -195,10 +193,16 @@
         "nodeType": "flow",
         "name": "",
         "path": "/detailView",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
         "qparamsMap": {
             "type": "bh.local",
             "value": "query"
         },
+        "qparamsArray": "",
+        "resultMapping": "",
         "functionName": "sd_KwXSgby9bEsqM6cp",
         "category": "Navigation",
         "x": 565,
@@ -229,8 +233,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "dataListTableComponent",
-        "generated": false
+        "serviceName": "dataListTableComponent"
     },
     {
         "id": "sd_L5oyfwOA8HmlVtIb",
@@ -337,8 +340,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "dataListTableComponent",
-        "generated": false
+        "serviceName": "dataListTableComponent"
     },
     {
         "id": "sd_glrwM3pBpuNvvxgA",
@@ -407,6 +409,193 @@
         "wires": [
             [
                 "sd_KwXSgby9bEsqM6cp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dataListTableComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_FYZ9v5FJTdtuKKyf",
+        "type": "PageStart",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "delete data",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "id",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "deleteData",
+        "category": "General",
+        "x": 105,
+        "y": 260,
+        "wires": [
+            [
+                "sd_Gix7sobcjnJkYRtf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "dataListTableComponent"
+    },
+    {
+        "id": "sd_TfLa36eRKD0Ieu4U",
+        "type": "PageCallService",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "calling delete service",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_CK4a3TO3vRkIuzHm",
+            "type": "tab",
+            "createdDate": "2024-02-20T04:50:49.891Z",
+            "label": "userService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_UFKIoXWMglxIYrwL",
+            "flowName": "deleteEntireData"
+        },
+        "inputVariables": [
+            {
+                "key": "query",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "query"
+            },
+            {
+                "key": "response",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "response",
+                "valueType": "bh.local",
+                "value": "response",
+                "mapVarName": "response",
+                "localVar": "bh.local.response"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/userService",
+        "startName": "deleteEntireData",
+        "inputParams": [
+            "bh.local.query",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "callingDeleteService",
+        "category": "General",
+        "x": 345,
+        "y": 260,
+        "wires": [
+            [
+                "sd_GNRkQxB2JNv9VaGK"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dataListTableComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_Gix7sobcjnJkYRtf",
+        "type": "Script",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "seting delete query data",
+        "script": "bh.local.query = {id:bh.input?.id}\nconsole.log(bh.input.id)",
+        "functionName": "setingDeleteQueryData",
+        "category": "Function",
+        "x": 220,
+        "y": 260,
+        "wires": [
+            [
+                "sd_TfLa36eRKD0Ieu4U"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dataListTableComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_GNRkQxB2JNv9VaGK",
+        "type": "Script",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.local.response)",
+        "functionName": "sd_GNRkQxB2JNv9VaGK",
+        "category": "Function",
+        "x": 460,
+        "y": 260,
+        "wires": [
+            [
+                "sd_8DFJStLChBbyLXL9"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dataListTableComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_8DFJStLChBbyLXL9",
+        "type": "SnackBar",
+        "z": "sd_Jtqb1EvaK33ecx53",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "bh.local",
+            "value": "response.message"
+        },
+        "action": {
+            "type": "str",
+            "value": "done"
+        },
+        "duration": {
+            "type": "num",
+            "value": "2500"
+        },
+        "horizontalPosition": "center",
+        "verticalPosition": "bottom",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_8DFJStLChBbyLXL9",
+        "category": "General",
+        "x": 580,
+        "y": 260,
+        "wires": [
+            [
+                "sd_ByvEYHEgJj2LybVu"
             ]
         ],
         "__n_excludedFromValidation__": {},

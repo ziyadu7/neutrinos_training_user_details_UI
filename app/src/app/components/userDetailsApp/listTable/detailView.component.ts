@@ -133,6 +133,36 @@ export class detailViewComponent {
       return this.errorHandler(bh, e, 'sd_5fKPNtTiBiDWif8y');
     }
   }
+
+  removeData(index: any = undefined, ...others) {
+    let bh: any = {};
+    try {
+      bh = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { index };
+      bh.local = {};
+      bh = this.removeDataScript(bh);
+      //appendnew_next_removeData
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Q06yuGXzqmy9TybP');
+    }
+  }
+
+  genderChanges(event: any = undefined, ...others) {
+    let bh: any = {};
+    try {
+      bh = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event };
+      bh.local = {};
+      bh = this.changeGender(bh);
+      //appendnew_next_genderChanges
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ZptXWTCK2WEqVR89');
+    }
+  }
   //appendnew_flow_detailViewComponent_start
 
   sd_wKGVPlM8Yu1UsR24(bh) {
@@ -436,7 +466,9 @@ export class detailViewComponent {
         this.sdService.getPathAndQParamsObj('/listDetails');
       await this.__page_injector__
         .get(Router)
-        .navigate([this.sdService.formatPathWithParams(path, undefined)]);
+        .navigate([this.sdService.formatPathWithParams(path, undefined)], {
+          queryParams: Object.assign(qprm, ''),
+        });
       //appendnew_next_sd_pDuIxgiLL1BS3WgE
       return bh;
     } catch (e) {
@@ -518,6 +550,36 @@ export class detailViewComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_uQC2hlU8QoVRrMGE');
+    }
+  }
+
+  removeDataScript(bh) {
+    try {
+      const page = this.page;
+      console.log(bh.input?.index);
+      let index = bh.input?.index;
+      while (page?.details[index]) {
+        page.details[index] = page?.details?.[index + 1];
+        index++;
+      }
+      console.log(page.details);
+      page.details.pop();
+      //appendnew_next_removeDataScript
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_FyQ70k5OZ1yT1crf');
+    }
+  }
+
+  changeGender(bh) {
+    try {
+      const page = this.page;
+      console.log(bh.input.event);
+      page.data.sex = bh.input?.event?.value;
+      //appendnew_next_changeGender
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_xtVTdyXhS0RbYHsM');
     }
   }
 

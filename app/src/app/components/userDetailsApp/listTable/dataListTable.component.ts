@@ -5,6 +5,7 @@
 
 import { AfterViewInit, Component, Injector, ViewChild } from '@angular/core'; //_splitter_
 import { MatPaginator } from '@angular/material/paginator'; //_splitter_
+import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 import { MatSort } from '@angular/material/sort'; //_splitter_
 import { Router } from '@angular/router'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -103,6 +104,21 @@ export class dataListTableComponent implements AfterViewInit {
       return this.errorHandler(bh, e, 'sd_2s8lYYNGoaBSuDA8');
     }
   }
+
+  deleteData(id: any = undefined, ...others) {
+    let bh: any = {};
+    try {
+      bh = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { id };
+      bh.local = {};
+      bh = this.setingDeleteQueryData(bh);
+      //appendnew_next_deleteData
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_FYZ9v5FJTdtuKKyf');
+    }
+  }
   //appendnew_flow_dataListTableComponent_start
 
   sd_yfYzMaiEO5w632rv(bh) {
@@ -137,7 +153,6 @@ export class dataListTableComponent implements AfterViewInit {
   sd_dnWBF4FmoIh15z4P(bh) {
     try {
       const page = this.page;
-      console.log(bh.local.response, 'data fetch response');
       page.tableData = bh.local?.response?.data;
       //appendnew_next_sd_dnWBF4FmoIh15z4P
       return bh;
@@ -234,6 +249,68 @@ export class dataListTableComponent implements AfterViewInit {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_uAf0YAKYmqS3dgi5');
+    }
+  }
+
+  setingDeleteQueryData(bh) {
+    try {
+      const page = this.page;
+      bh.local.query = { id: bh.input?.id };
+      console.log(bh.input.id);
+      bh = this.callingDeleteService(bh);
+      //appendnew_next_setingDeleteQueryData
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Gix7sobcjnJkYRtf');
+    }
+  }
+
+  async callingDeleteService(bh) {
+    try {
+      const userServiceInstance: userService =
+        this.__page_injector__.get(userService);
+
+      let outputVariables = await userServiceInstance.deleteEntireData(
+        bh.local.query,
+        undefined
+      );
+      bh.local.response = outputVariables.input.response;
+
+      bh = this.sd_GNRkQxB2JNv9VaGK(bh);
+      //appendnew_next_callingDeleteService
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_TfLa36eRKD0Ieu4U');
+    }
+  }
+
+  sd_GNRkQxB2JNv9VaGK(bh) {
+    try {
+      const page = this.page;
+      console.log(bh.local.response);
+      bh = this.sd_8DFJStLChBbyLXL9(bh);
+      //appendnew_next_sd_GNRkQxB2JNv9VaGK
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_GNRkQxB2JNv9VaGK');
+    }
+  }
+
+  sd_8DFJStLChBbyLXL9(bh) {
+    try {
+      this.__page_injector__
+        .get(MatSnackBar)
+        .open(bh.local.response.message, 'done', {
+          duration: 2500,
+          direction: 'ltr',
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+      bh = this.sd_ByvEYHEgJj2LybVu(bh);
+      //appendnew_next_sd_8DFJStLChBbyLXL9
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_8DFJStLChBbyLXL9');
     }
   }
 

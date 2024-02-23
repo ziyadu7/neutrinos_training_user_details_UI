@@ -337,6 +337,7 @@
         "nodeType": "flow",
         "name": "",
         "method": "post",
+        "methodMapping": "",
         "methodMappingObj": {},
         "urlMapping": "bh.local.url",
         "urlMappingObj": {
@@ -344,8 +345,10 @@
             "mapVarValue": "url"
         },
         "ret": "json",
+        "retMapping": "",
         "retMappingObj": {},
         "observe": "",
+        "observeMapping": "",
         "observeMappingObj": {},
         "reportProgress": false,
         "withCreds": false,
@@ -361,9 +364,11 @@
         },
         "headers": {},
         "headersObj": [],
+        "headerMapping": "",
         "headerMappingObj": {},
         "params": {},
         "paramsObj": [],
+        "paramMapping": "",
         "paramMappingObj": {},
         "functionName": "sd_Fpv2MPdzj2tbxDGT",
         "category": "HTTP",
@@ -448,6 +453,7 @@
         "nodeType": "flow",
         "name": "",
         "method": "get",
+        "methodMapping": "",
         "methodMappingObj": {},
         "urlMapping": "bh.local.url",
         "urlMappingObj": {
@@ -455,11 +461,14 @@
             "mapVarValue": "url"
         },
         "ret": "json",
+        "retMapping": "",
         "retMappingObj": {},
         "observe": "",
+        "observeMapping": "",
         "observeMappingObj": {},
         "reportProgress": false,
         "withCreds": false,
+        "reqBody": "",
         "reqBodyObj": {
             "mapVarType": "bh",
             "mapVarValue": ""
@@ -471,7 +480,10 @@
         },
         "headers": {},
         "headersObj": [],
+        "headerMapping": "",
         "headerMappingObj": {},
+        "params": [],
+        "paramsObj": {},
         "paramMapping": "bh.input.query",
         "paramMappingObj": {
             "mapVarType": "bh.input",
@@ -568,6 +580,7 @@
         "nodeType": "flow",
         "name": "",
         "method": "put",
+        "methodMapping": "",
         "methodMappingObj": {},
         "urlMapping": "bh.local.url",
         "urlMappingObj": {
@@ -575,8 +588,10 @@
             "mapVarValue": "url"
         },
         "ret": "json",
+        "retMapping": "",
         "retMappingObj": {},
         "observe": "",
+        "observeMapping": "",
         "observeMappingObj": {},
         "reportProgress": false,
         "withCreds": false,
@@ -592,7 +607,10 @@
         },
         "headers": {},
         "headersObj": [],
+        "headerMapping": "",
         "headerMappingObj": {},
+        "params": [],
+        "paramsObj": {},
         "paramMapping": "bh.input.query",
         "paramMappingObj": {
             "mapVarType": "bh.input",
@@ -611,26 +629,40 @@
         "generated": true
     },
     {
-        "id": "sd_iUKj2I4hHp40fPH9",
-        "type": "Catch",
+        "id": "sd_UFKIoXWMglxIYrwL",
+        "type": "Start",
         "z": "sd_CK4a3TO3vRkIuzHm",
-        "viewType": "common",
+        "viewType": "client-server",
         "nodeType": "start",
-        "name": "error catching",
-        "selectedNodes": "all-nodes",
-        "selectCatchType": "allnodes",
-        "masternodeList": "",
-        "ignoreList": [
-            "sd_8rXQ6wUrP5O67Zca",
-            "sd_hLUXvmeif2sQobqi"
+        "name": "delete entire data",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "query",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "response",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
         ],
-        "functionName": "errorCatching",
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "deleteEntireData",
         "category": "General",
-        "x": 160,
-        "y": 780,
+        "x": 125,
+        "y": 820,
         "wires": [
             [
-                "sd_8rXQ6wUrP5O67Zca"
+                "sd_RdpZU6bCsFKf8VjJ"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -638,20 +670,20 @@
         "serviceName": "userService"
     },
     {
-        "id": "sd_8rXQ6wUrP5O67Zca",
+        "id": "sd_RdpZU6bCsFKf8VjJ",
         "type": "Script",
         "z": "sd_CK4a3TO3vRkIuzHm",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(bh.error,'error consoling')\nconst colonIndex = bh.error?.error?.indexOf(':');\n\nconst atIndex =bh.error?.error?.indexOf(' at', colonIndex);\n\nbh.error.message =bh.error?.error?.substring(colonIndex + 1, atIndex);\nconsole.log(bh.error.message,'error message consoling')",
-        "functionName": "sd_8rXQ6wUrP5O67Zca",
+        "script": "bh.local.url = bh.system.environment.properties.ssdURL+`details`",
+        "functionName": "sd_RdpZU6bCsFKf8VjJ",
         "category": "Function",
-        "x": 345,
-        "y": 780,
+        "x": 300,
+        "y": 820,
         "wires": [
             [
-                "sd_hLUXvmeif2sQobqi"
+                "sd_zAPFMWr6UADTNaWe"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -660,35 +692,46 @@
         "generated": true
     },
     {
-        "id": "sd_hLUXvmeif2sQobqi",
-        "type": "SnackBar",
+        "id": "sd_zAPFMWr6UADTNaWe",
+        "type": "HttpRequest",
         "z": "sd_CK4a3TO3vRkIuzHm",
         "viewType": "client-pages",
         "nodeType": "flow",
         "name": "",
-        "message": {
-            "type": "bh",
-            "value": "error.message"
+        "method": "delete",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
         },
-        "action": {
-            "type": "str",
-            "value": "Ok"
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
         },
-        "duration": {
-            "type": "num",
-            "value": "2500"
+        "resultMapping": "bh.input.response",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "response"
         },
-        "horizontalPosition": "center",
-        "verticalPosition": "bottom",
-        "panelClass": {
-            "type": "str",
-            "value": ""
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "paramMapping": "bh.input.query",
+        "paramMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "query"
         },
-        "direction": "ltr",
-        "functionName": "sd_hLUXvmeif2sQobqi",
-        "category": "General",
-        "x": 500,
-        "y": 780,
+        "functionName": "sd_zAPFMWr6UADTNaWe",
+        "category": "HTTP",
+        "x": 480,
+        "y": 820,
         "wires": [
             []
         ],

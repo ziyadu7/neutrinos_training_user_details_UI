@@ -185,6 +185,37 @@ export class userService {
       return await this.errorHandler(bh, e, 'sd_noOT5LUeIApJFuuZ');
     }
   }
+
+  async deleteEntireData(
+    query: any = undefined,
+    response: any = undefined,
+    ...others
+  ) {
+    let bh: any = {
+      input: {
+        query,
+        response,
+      },
+      local: {},
+    };
+    try {
+      bh = this.sdService.__constructDefault(bh);
+
+      bh = await this.sd_RdpZU6bCsFKf8VjJ(bh);
+      //appendnew_next_deleteEntireData
+      return (
+        // formatting output variables
+        {
+          input: {
+            response: bh.input.response,
+          },
+          local: {},
+        }
+      );
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_UFKIoXWMglxIYrwL');
+    }
+  }
   //appendnew_flow_userService_start
 
   async sd_UjoyFvW5hMn6r3t9(bh) {
@@ -346,35 +377,32 @@ export class userService {
     }
   }
 
-  async sd_8rXQ6wUrP5O67Zca(bh) {
+  async sd_RdpZU6bCsFKf8VjJ(bh) {
     try {
-      console.log(bh.error, 'error consoling');
-      const colonIndex = bh.error?.error?.indexOf(':');
-
-      const atIndex = bh.error?.error?.indexOf(' at', colonIndex);
-
-      bh.error.message = bh.error?.error?.substring(colonIndex + 1, atIndex);
-      console.log(bh.error.message, 'error message consoling');
-      bh = await this.sd_hLUXvmeif2sQobqi(bh);
-      //appendnew_next_sd_8rXQ6wUrP5O67Zca
+      bh.local.url = bh.system.environment.properties.ssdURL + `details`;
+      bh = await this.sd_zAPFMWr6UADTNaWe(bh);
+      //appendnew_next_sd_RdpZU6bCsFKf8VjJ
       return bh;
     } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_8rXQ6wUrP5O67Zca');
+      return await this.errorHandler(bh, e, 'sd_RdpZU6bCsFKf8VjJ');
     }
   }
 
-  async sd_hLUXvmeif2sQobqi(bh) {
+  async sd_zAPFMWr6UADTNaWe(bh) {
     try {
-      this.matSnackBar.open(bh.error.message, 'Ok', {
-        duration: 2500,
-        direction: 'ltr',
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-      });
-      //appendnew_next_sd_hLUXvmeif2sQobqi
+      let requestOptions = {
+        url: bh.local.url,
+        method: 'delete',
+        responseType: 'json',
+        headers: {},
+        params: bh.input.query,
+        body: undefined,
+      };
+      bh.input.response = await this.sdService.nHttpRequest(requestOptions);
+      //appendnew_next_sd_zAPFMWr6UADTNaWe
       return bh;
     } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_hLUXvmeif2sQobqi');
+      return await this.errorHandler(bh, e, 'sd_zAPFMWr6UADTNaWe');
     }
   }
 
@@ -385,24 +413,7 @@ export class userService {
     console.error(e);
     bh.error = e;
     bh.errorSource = src;
-    if (
-      false ||
-      (await this.errorCatching(bh))
-      /*appendnew_next_Catch*/
-    ) {
-      return bh;
-    } else {
-      throw e;
-    }
-  }
-  async errorCatching(bh) {
-    const catchConnectedNodes = ['sd_8rXQ6wUrP5O67Zca', 'sd_hLUXvmeif2sQobqi'];
-    if (catchConnectedNodes.includes(bh.errorSource)) {
-      return false;
-    }
-    bh = await this.sd_8rXQ6wUrP5O67Zca(bh);
-    //appendnew_next_errorCatching
-    return true;
+    throw e;
   }
   //appendnew_flow_userService_Catch
 }

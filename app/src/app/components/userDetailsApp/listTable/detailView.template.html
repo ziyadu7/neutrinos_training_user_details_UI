@@ -21,14 +21,11 @@
             <mat-error align="start" *ngIf="page.mainEditForm.get(&apos;email&apos;)?.errors?.required">Email is required</mat-error><mat-error align="start" *ngIf="page.mainEditForm.get(&apos;email&apos;)?.errors?.regex_error">Enter valid email</mat-error>
           </mat-form-field>
         </div>
-        <div fxLayout="row wrap" fxLayoutGap="5" fxLayoutAlign="center stretch" [fxShow]="true"><mat-radio-group formControlName="sex" [required]="false"></mat-radio-group>
-          <p>
-            Sex : {{page?.data?.sex}}</p>
-        </div>
+        <div fxLayout="row wrap" fxLayoutGap="5" fxLayoutAlign="center stretch" [fxShow]="true"><mat-radio-group formControlName="sex" *ngFor="let sex of [&apos;male&apos;,&apos;female&apos;];let i=index;" (change)="genderChanges($event)" [required]="false"><mat-radio-button [value]="sex" [required]="false" id="{{i}}" [checked]="page?.data?.sex == sex">{{sex}}</mat-radio-button></mat-radio-group></div>
       </form>
       <div *ngFor="let subData of page?.details">
-        <div fxLayout="row" fxLayoutAlign="end center">
-          <button mat-raised-button style="margin-bottom:5px;" color="primary" (click)="modalFormManaging(&apos;open&apos;,subData)">Edit</button>
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="4">
+          <button mat-raised-button style="margin-bottom:5px;" color="primary" (click)="modalFormManaging(&apos;open&apos;,subData)">Edit</button><button mat-raised-button style="margin-bottom:5px;" color="warn" (click)="removeData(subData?.index)">Delete</button>
         </div>
         <div fxLayout="row wrap" fxLayoutGap="5" fxLayoutAlign="space-evenly stretch" [fxShow]="true">
           <mat-form-field style="width:45%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
@@ -41,7 +38,7 @@
           </mat-form-field>
         </div>
         <div fxLayout="row wrap" fxLayoutAlign="center stretch" [fxShow]="true">
-          <mat-form-field style="width:94%" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <mat-form-field style="width:94%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
             <input matInput type="string" placeholder="date difference" value="{{subData?.dateDiff}}" [required]="false" [disabled]="true">
             <mat-label>date difference</mat-label>
           </mat-form-field>
@@ -56,11 +53,15 @@
 
           </mat-form-field>
         </div>
+        <div fxLayout="row wrap" fxLayoutAlign="center stretch" [fxShow]="true">
+          <mat-form-field style="width:94%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+            <input matInput type="string" placeholder="Weather" value="{{subData?.weather}}" [required]="false" [disabled]="true">
+            <mat-label>date difference</mat-label>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row wrap" style="margin-bottom:5px;padding-left:4px;padding-right:4px;" fxLayoutAlign="space-between stretch" [fxShow]="true"><lib-file-upload [nFileUploadAcceptableFileTypes]="[pdf,img,jpg]" [nFileUploadSelectMultiple]="false" [nFileUploadChangeLabelWithFileName]="false" [nFileUploadDisabled]="false" (nFileUploadOnChange)="fileUploading($event)"></lib-file-upload><span>
+                <a href="{{page?.data?.file}}" target="_blank">Click here to view file</a></span></div>
       </div>
-      <div fxLayout="row" fxLayoutAlign="center center">
-        <img [src]="page?.data?.file" width="50%">
-      </div>
-      <div fxLayout="row wrap" style="margin-bottom:5px;" fxLayoutAlign="center stretch" [fxShow]="true"><lib-file-upload [nFileUploadAcceptableFileTypes]="[pdf,img,jpg]" [nFileUploadSelectMultiple]="false" [nFileUploadChangeLabelWithFileName]="false" [nFileUploadDisabled]="false" (nFileUploadOnChange)="fileUploading($event)" style="width:94%;"></lib-file-upload></div>
       <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="9">
         <button mat-button style="margin-bottom:5px;width:100%;" class="add-more-button" (click)="modalFormManaging(&apos;open&apos;,false)" type="submit">Add More</button><button mat-button style="width:100%;" class="submit-button" (click)="submitMainForm()" type="submit">submit Edits</button>
       </div>

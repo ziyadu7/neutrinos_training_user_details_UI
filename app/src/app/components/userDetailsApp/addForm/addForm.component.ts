@@ -384,7 +384,6 @@ export class addFormComponent {
           name: page?.addForm?.value?.name,
           phone: page?.addForm?.value?.phone,
           email: page?.addForm?.value?.email,
-          file: page?.file,
           sex: page?.gender,
           details: [
             ...page?.data?.details,
@@ -403,7 +402,6 @@ export class addFormComponent {
           name: page?.addForm?.value?.name,
           phone: page?.addForm?.value?.phone,
           email: page?.addForm?.value?.email,
-          file: page?.file,
           sex: page?.gender,
           details: [
             {
@@ -417,8 +415,6 @@ export class addFormComponent {
           ],
         };
       }
-
-      console.log('ivde ething ttoo', page?.data);
 
       bh.local.response = {
         message: 'value add successfully',
@@ -626,7 +622,7 @@ export class addFormComponent {
       formData.append('phone', page?.data?.phone);
       formData.append('email', page?.data?.email);
       formData.append('sex', page?.data?.sex);
-      formData.append('file', page?.data?.file);
+      formData.append('file', page?.file);
       formData.append('details', detailsJSON);
 
       page.data = formData;
